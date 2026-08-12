@@ -1,6 +1,6 @@
 /* =================================================================
    DC Tech — GPU-Accelerated AI Infrastructure
-   Funnel: Readiness Quiz → (pass) Checkout / (brush up) Reading list.
+   Funnel: Enroll Now → Checkout / enrollment form.
    UTM capture + forwarding · CTA wiring · reveal-on-scroll.
    ================================================================= */
 (function () {
@@ -9,16 +9,13 @@
   /* ---------------------------------------------------------------
      CONFIG — the swappable knobs. Edit these, nothing else.
 
-     The pass/brush-up routing happens INSIDE the Google Form
-     (Form → Settings → "Presentation" / response-based redirect):
-       • high score  → CHECKOUT_URL
-       • low score   → reading-list.html
-     This page only needs to LAUNCH the quiz and the checkout.
+     Every "Enroll Now" CTA points at CHECKOUT_URL (the enrollment
+     Google Form / payment link). UTMs are forwarded onto it so ad
+     attribution survives the redirect.
      --------------------------------------------------------------- */
-  const QUIZ_URL        = "TODO(rashmi): Readiness Quiz Google Form URL (e.g. https://forms.gle/...)";
-  const CHECKOUT_URL    = "TODO(rashmi): Stripe / checkout URL for the $199 enrolment";
+  const CHECKOUT_URL    = "https://docs.google.com/forms/d/e/1FAIpQLSfd7ONJXJsGqjSq0Qa6lybhF2u-jgLMXNq7fMsVsd4fYwm_1Q/viewform";
   const SYLLABUS_PDF_URL = "TODO(rashmi): full syllabus PDF URL";
-  const READING_LIST_URL = "reading-list.html"; // built — brush-up redirect target
+  const READING_LIST_URL = "reading-list.html"; // standalone recommended-reading resource
 
   const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
 
@@ -57,12 +54,11 @@
     document.querySelectorAll(selector).forEach((a) => {
       if (!ready) return; // keep the HTML anchor fallback
       a.href = attribute ? url : withUtms(url);
-      if (external) { a.target = "_blank"; a.rel = "noopener"; }
+      if (external) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
     });
   }
 
   function wireCtas() {
-    wire(".js-cta-quiz", QUIZ_URL);
     wire(".js-cta-enroll", CHECKOUT_URL);
     wire(".js-cta-syllabus", SYLLABUS_PDF_URL);
     // reading list is a local page; forward UTMs but keep same-tab navigation
@@ -70,7 +66,6 @@
 
     // Helpful console hint while endpoints are pending.
     const pending = [
-      isTodo(QUIZ_URL) && "QUIZ_URL",
       isTodo(CHECKOUT_URL) && "CHECKOUT_URL",
       isTodo(SYLLABUS_PDF_URL) && "SYLLABUS_PDF_URL",
     ].filter(Boolean);

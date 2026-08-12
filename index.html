@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GPU-Accelerated AI Infrastructure — Practitioner Training | DC Tech</title>
-  <meta name="description" content="A vendor-neutral curriculum for infrastructure engineers to architect, deploy and scale GPU-accelerated AI environments. 218 pages of reference material, 3 real-world case studies, and a portfolio-ready design deliverable." />
+  <meta name="description" content="A vendor-neutral curriculum for infrastructure engineers to architect, deploy and scale GPU-accelerated AI environments. 218 pages of reference material, an AI-assisted learning platform with progress-tracking quiz assessments, and a portfolio-ready design deliverable." />
   <meta name="theme-color" content="#0A0C12" />
 
   <meta property="og:type" content="website" />
@@ -23,7 +23,7 @@
   <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
-  <a class="skip-link" href="#gate">Skip to readiness assessment</a>
+  <a class="skip-link" href="#pricing">Skip to enrollment</a>
 
   <!-- ───────────────────────── NAV (CTA — top) ───────────────────────── -->
   <header class="nav" id="top">
@@ -39,7 +39,7 @@
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="btn btn--primary btn--sm nav__cta js-cta-quiz" href="#gate" data-cta="nav">Take the Assessment</a>
+      <a class="btn btn--primary btn--sm nav__cta js-cta-enroll" href="#pricing" data-cta="nav-enroll">Enroll Now</a>
     </div>
   </header>
 
@@ -57,11 +57,11 @@
           <h1 class="hero__title" data-reveal>Stop treating GPU clusters like <span class="accent">generic servers.</span></h1>
           <p class="hero__lede" data-reveal>
             The vendor-neutral curriculum for infrastructure professionals to architect, deploy, and scale
-            AI environments — <strong>218 pages</strong> of deep-dive reference material,
-            <strong>3 real-world case studies</strong>, and a <strong>portfolio-ready design deliverable</strong>.
+            AI environments — <strong>218 pages</strong> of deep-dive reference material, an
+            <strong>AI-assisted learning platform</strong>, and a <strong>portfolio-ready design deliverable</strong>.
           </p>
           <div class="hero__actions" data-reveal>
-            <a class="btn btn--primary btn--lg js-cta-quiz" href="#gate" data-cta="hero">Take the Readiness Assessment</a>
+            <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="hero">Enroll Now</a>
             <a class="btn btn--ghost btn--lg js-cta-syllabus" href="#modules" data-cta="hero-syllabus">
               View Full Syllabus
               <span class="btn__tag">PDF</span>
@@ -70,7 +70,7 @@
           <dl class="specrow" data-reveal>
             <div><dt>218</dt><dd>pages reference</dd></div>
             <div><dt>8</dt><dd>modules</dd></div>
-            <div><dt>3</dt><dd>case studies</dd></div>
+            <div><dt>8</dt><dd>progress quizzes</dd></div>
             <div><dt>1</dt><dd>design deliverable</dd></div>
           </dl>
         </div>
@@ -81,12 +81,36 @@
           <pre class="term__body"><span class="c-prompt">$</span> dctech describe <span class="c-arg">nvidia-ai-infra</span>
 <span class="c-key">modules</span> ........... <span class="c-val">8</span>
 <span class="c-key">reference</span> ......... <span class="c-val">218 pages</span>
-<span class="c-key">case_studies</span> ...... <span class="c-val">finserv · healthcare · gdpr</span>
+<span class="c-key">platform</span> .......... <span class="c-val c-ok">AI-assisted</span>
+<span class="c-key">progress</span> .......... <span class="c-val">quiz-tracked</span>
 <span class="c-key">deliverable</span> ....... <span class="c-val">design-document.pdf</span>
 <span class="c-key">certification</span> ..... <span class="c-val">practitioner assessment</span>
 <span class="c-key">prerequisites</span> ..... <span class="c-val">linux · k8s · datacenter</span>
 <span class="c-key">vendor_lock_in</span> .... <span class="c-val c-ok">none</span>
 <span class="c-prompt">$</span> <span class="c-cursor">▌</span></pre>
+        </div>
+      </div>
+
+      <!-- Offer + feature highlights — discounted pricing and the two headline features, up top -->
+      <div class="container hero__offer" data-reveal>
+        <div class="offer">
+          <span class="offer__label">Course fee</span>
+          <p class="offer__price">
+            <s class="offer__was">$420</s>
+            <span class="offer__free">$5</span>
+          </p>
+        </div>
+        <div class="offer__feats">
+          <article class="ofeat">
+            <span class="ofeat__badge ofeat__badge--ai" aria-hidden="true">AI</span>
+            <h3 class="ofeat__title">AI-Assisted Platform</h3>
+            <p class="ofeat__desc">Personalized guidance and content powered by AI, tailored to how you learn best.</p>
+          </article>
+          <article class="ofeat">
+            <span class="ofeat__badge ofeat__badge--qz" aria-hidden="true">Qz</span>
+            <h3 class="ofeat__title">Quiz-Tracked Growth</h3>
+            <p class="ofeat__desc">Built-in quiz assessments after every module to track your progress as you grow.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -113,34 +137,6 @@
             <li><span class="movelist__i">01</span><div><strong>Stop learning through trial and error.</strong><p>Production GPU mistakes are expensive and slow to surface.</p></div></li>
             <li><span class="movelist__i">02</span><div><strong>Move from Platform Administrator to AI Infrastructure Expert.</strong><p>Own the architecture decisions, not just the tickets.</p></div></li>
             <li><span class="movelist__i">03</span><div><strong>Bridge hardware architecture and AI workload demands.</strong><p>Map what the workload needs to what the silicon and fabric can deliver.</p></div></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ───────────────────── QUALIFICATION GATE ───────────────────── -->
-    <section class="section section--gate" id="gate">
-      <div class="container">
-        <div class="gate" data-reveal>
-          <div class="gate__copy">
-            <p class="eyebrow">// the filter</p>
-            <h2 class="section__title">Is this program right for your skill level?</h2>
-            <p class="section__lede">
-              This course is built for experienced infrastructure and platform professionals. Before you enrol,
-              check your baseline against the material — it takes a few minutes, and it routes you to the right
-              next step.
-            </p>
-            <a class="btn btn--primary btn--lg js-cta-quiz" href="#pricing" data-cta="gate">Launch Readiness Quiz</a>
-          </div>
-          <ul class="gate__routes" aria-hidden="false">
-            <li class="route route--pass">
-              <span class="route__tag">if you pass →</span>
-              <span class="route__dest">straight to enrolment</span>
-            </li>
-            <li class="route route--brush">
-              <span class="route__tag">if you brush up →</span>
-              <span class="route__dest"><a class="js-cta-reading" href="reading-list.html">a focused reading list</a></span>
-            </li>
           </ul>
         </div>
       </div>
@@ -188,7 +184,7 @@
             <article class="card take" data-reveal>
               <span class="take__i">03</span>
               <h3>Decision Frameworks</h3>
-              <p>A 5-year TCO model built from three included case studies: Financial Services, Healthcare, and Multi-Region GDPR compliance.</p>
+              <p>A 5-year TCO model and reusable decision frameworks for sizing, fabric selection, and buy-vs-build trade-offs.</p>
             </article>
           </div>
         </div>
@@ -284,26 +280,28 @@
     <section class="section" id="pricing">
       <div class="container">
         <header class="section__head section__head--center" data-reveal>
-          <p class="eyebrow">// enrolment</p>
-          <h2 class="section__title">One price. Full access.</h2>
-          <p class="section__lede">Everything in the program — reference material, case studies, certification assessment, and the design deliverable.</p>
+          <p class="eyebrow">// enrollment</p>
+          <h2 class="section__title">One price. Everything included.</h2>
+          <p class="section__lede">Everything in the program — reference material, an AI-assisted learning platform, progress-tracking quiz assessments, certification, and the design deliverable.</p>
         </header>
 
         <div class="price" data-reveal>
-          <div class="price__badge">FULL ACCESS</div>
-          <div class="price__amount"><span class="price__cur">$</span><span class="price__num">199</span><span class="price__per">USD</span></div>
-          <!-- TODO(pricing): confirm currency localisation for India / UK markets before go-live -->
-          <p class="price__note">One-time enrolment · all 8 modules</p>
+          <div class="price__badge">LIMITED OFFER</div>
+          <div class="price__amount price__amount--free">
+            <span class="price__strike">$420</span>
+            <span class="price__num">$5</span>
+          </div>
+          <p class="price__note">Limited-time offer · all 8 modules</p>
           <ul class="price__list">
             <li>Full access to all 8 modules</li>
             <li>218 pages of deep-dive reference material</li>
-            <li>3 applied case studies — Financial Services · Healthcare · Multi-Region GDPR</li>
+            <li>AI-assisted learning platform</li>
+            <li>Quiz assessments that track your growth</li>
             <li>Practitioner certification assessment</li>
             <li>Portfolio-ready AI Infrastructure design deliverable</li>
           </ul>
-          <a class="btn btn--primary btn--lg btn--block js-cta-enroll" href="#gate" data-cta="pricing">Enrol Now</a>
+          <a class="btn btn--primary btn--lg btn--block js-cta-enroll" href="#pricing" data-cta="pricing">Pay Now</a>
           <p class="price__trust">Vendor-Neutral · Peer-Reviewed · Practice-Focused</p>
-          <p class="price__alt">Not sure yet? <a class="js-cta-quiz" href="#gate">Take the readiness assessment first →</a></p>
         </div>
       </div>
     </section>
@@ -323,7 +321,7 @@
           </details>
           <details class="qa" name="faq">
             <summary>What are the prerequisites?<span class="module__chev" aria-hidden="true"></span></summary>
-            <div class="qa__body">Solid working knowledge of Linux, Kubernetes, and enterprise data center basics. The readiness assessment will tell you if you're set.</div>
+            <div class="qa__body">Solid working knowledge of Linux, Kubernetes, and enterprise data center basics — the program is built for experienced infrastructure and platform professionals.</div>
           </details>
           <details class="qa" name="faq">
             <summary>Is there a certificate?<span class="module__chev" aria-hidden="true"></span></summary>
@@ -349,7 +347,7 @@
         </div>
       </div>
       <div class="footer__cta">
-        <a class="btn btn--primary js-cta-quiz" href="#gate" data-cta="footer">Take the Assessment</a>
+        <a class="btn btn--primary js-cta-enroll" href="#pricing" data-cta="footer">Enroll Now</a>
         <p class="footer__links"><a href="#modules">Syllabus</a> · <a href="reading-list.html">Reading list</a> · <a href="#pricing">Pricing</a></p>
       </div>
     </div>

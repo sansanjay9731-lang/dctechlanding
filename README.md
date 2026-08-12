@@ -47,7 +47,7 @@ the register that reads "built by infrastructure people" without looking gimmick
 2. **Colours** — the `:root` tokens at the top of `styles.css`.
 3. **Funnel URLs** — the `CONFIG` block at the top of `script.js`:
    - `QUIZ_URL` — Readiness Quiz Google Form URL
-   - `CHECKOUT_URL` — Stripe / checkout URL for the $199 enrolment
+   - `CHECKOUT_URL` — Stripe / checkout URL for the $199 enrollment
    - `SYLLABUS_PDF_URL` — full syllabus PDF
    - `READING_LIST_URL` — already wired to `reading-list.html`
 4. **Copy** — all in `index.html` / `reading-list.html`.
