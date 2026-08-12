@@ -3,51 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NVIDIA AI Infrastructure Training — DC Tech Consulting</title>
-  <meta name="description" content="A vendor-neutral, hands-on NVIDIA AI infrastructure training program by DC Tech Consulting. 8 modules across GPU compute, InfiniBand, Kubernetes orchestration, Run:AI and observability — with a portfolio-ready deliverable." />
-  <meta name="theme-color" content="#060B1A" />
+  <title>GPU-Accelerated AI Infrastructure — Practitioner Training | DC Tech</title>
+  <meta name="description" content="A vendor-neutral curriculum for infrastructure engineers to architect, deploy and scale GPU-accelerated AI environments. 218 pages of reference material, 3 real-world case studies, and a portfolio-ready design deliverable." />
+  <meta name="theme-color" content="#0A0C12" />
 
-  <!-- Open Graph / social (TODO(domain): update url + og:image once final domain is set) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NVIDIA AI Infrastructure Training — DC Tech Consulting" />
-  <meta property="og:description" content="Build, scale and operate GPU infrastructure for AI. Vendor-neutral, hands-on, portfolio-ready." />
+  <meta property="og:title" content="GPU-Accelerated AI Infrastructure — Practitioner Training" />
+  <meta property="og:description" content="Stop treating GPU clusters like generic servers. The vendor-neutral curriculum for infrastructure professionals." />
 
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/dctech-logo.png" />
 
-  <!-- Fonts: Geist + Geist Mono (DC Tech brand face). Preconnect for faster first paint. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" />
 
   <link rel="stylesheet" href="styles.css" />
-  <!-- If JS is disabled, reveal-on-scroll elements must not stay hidden. -->
   <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
-  <!-- Skip link for keyboard users -->
-  <a class="skip-link" href="#lead">Skip to enrolment form</a>
+  <a class="skip-link" href="#gate">Skip to readiness assessment</a>
 
-  <!-- ───────────────────────── NAV (CTA #1 — top) ───────────────────────── -->
+  <!-- ───────────────────────── NAV (CTA — top) ───────────────────────── -->
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a class="brand" href="#top" aria-label="DC Tech Consulting — home">
-        <!-- Logo is the single swappable brand asset: replace assets/dctech-logo.png -->
-        <span class="brand__chip">
-          <img src="assets/dctech-logo.png" alt="DC Tech Consulting" width="40" height="40" />
-        </span>
+      <a class="brand" href="#top" aria-label="DC Tech — home">
+        <span class="brand__chip"><img src="assets/dctech-logo.png" alt="DC Tech" width="34" height="34" /></span>
         <span class="brand__word">DC&nbsp;Tech</span>
       </a>
-
       <nav class="nav__links" aria-label="Primary">
-        <a href="#highlights">Program</a>
-        <a href="#audience">Who it's for</a>
+        <a href="#problem">Problem</a>
+        <a href="#build">Deliverable</a>
         <a href="#modules">Modules</a>
-        <a href="#tech">Tech</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
       </nav>
-
-      <a class="btn btn--primary btn--sm nav__cta" href="#lead" data-cta="nav">Request Callback</a>
+      <a class="btn btn--primary btn--sm nav__cta js-cta-quiz" href="#gate" data-cta="nav">Take the Assessment</a>
     </div>
   </header>
 
@@ -55,320 +47,316 @@
     <!-- ───────────────────────── HERO ───────────────────────── -->
     <section class="hero">
       <div class="hero__bg" aria-hidden="true">
-        <div class="hero__grid"></div>
-        <div class="hero__glow hero__glow--blue"></div>
-        <div class="hero__glow hero__glow--cyan"></div>
+        <div class="grid-tex"></div>
+        <div class="hero__glow"></div>
       </div>
 
       <div class="container hero__inner">
-        <p class="kicker" data-reveal>NVIDIA-Aligned&nbsp;·&nbsp;Vendor-Neutral&nbsp;·&nbsp;Live Cohort</p>
-        <h1 class="hero__title" data-reveal>
-          NVIDIA AI Infrastructure <span class="accent">Training</span>
-        </h1>
-        <p class="hero__lede" data-reveal>
-          Design, build and operate the GPU infrastructure that runs modern AI —
-          from H100/H200/B200 compute to InfiniBand fabrics, Kubernetes orchestration and full-stack observability.
-        </p>
-
-        <div class="hero__actions" data-reveal>
-          <a class="btn btn--primary btn--lg" href="#lead" data-cta="hero">Request Callback</a>
-          <a class="btn btn--ghost btn--lg js-whatsapp" href="#lead" data-channel="whatsapp">
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M.06 24l1.69-6.16A11.86 11.86 0 010 11.92C0 5.34 5.36 0 11.94 0a11.82 11.82 0 018.42 3.49 11.82 11.82 0 013.49 8.43c0 6.58-5.36 11.92-11.94 11.92-2.02 0-4-.5-5.76-1.46L.06 24zM6.6 20.07c1.7 1 3.3 1.6 5.34 1.6 5.47 0 9.93-4.44 9.93-9.9a9.86 9.86 0 00-2.9-7 9.78 9.78 0 00-7-2.9c-5.47 0-9.93 4.44-9.93 9.9a9.8 9.8 0 001.52 5.26l.24.39-1 3.65 3.76-.98zM17.5 14.6c-.07-.12-.27-.2-.56-.34-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.18 5.05 4.46.7.3 1.25.48 1.68.62.7.22 1.35.19 1.86.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.28.18-1.41z"/></svg>
-            WhatsApp us
-          </a>
-          <a class="btn btn--ghost btn--lg js-call" href="#lead" data-channel="call">
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.24 1.05l-2.2 2.19z"/></svg>
-            Call us
-          </a>
+        <div class="hero__copy">
+          <p class="eyebrow" data-reveal>// vendor-neutral curriculum · 8 modules · practitioner cert</p>
+          <h1 class="hero__title" data-reveal>Stop treating GPU clusters like <span class="accent">generic servers.</span></h1>
+          <p class="hero__lede" data-reveal>
+            The vendor-neutral curriculum for infrastructure professionals to architect, deploy, and scale
+            AI environments — <strong>218 pages</strong> of deep-dive reference material,
+            <strong>3 real-world case studies</strong>, and a <strong>portfolio-ready design deliverable</strong>.
+          </p>
+          <div class="hero__actions" data-reveal>
+            <a class="btn btn--primary btn--lg js-cta-quiz" href="#gate" data-cta="hero">Take the Readiness Assessment</a>
+            <a class="btn btn--ghost btn--lg js-cta-syllabus" href="#modules" data-cta="hero-syllabus">
+              View Full Syllabus
+              <span class="btn__tag">PDF</span>
+            </a>
+          </div>
+          <dl class="specrow" data-reveal>
+            <div><dt>218</dt><dd>pages reference</dd></div>
+            <div><dt>8</dt><dd>modules</dd></div>
+            <div><dt>3</dt><dd>case studies</dd></div>
+            <div><dt>1</dt><dd>design deliverable</dd></div>
+          </dl>
         </div>
 
-        <ul class="hero__trust" data-reveal>
-          <li><strong>8</strong> hands-on modules</li>
-          <li><span class="dot" aria-hidden="true"></span><strong>Vendor-neutral</strong> curriculum</li>
-          <li><span class="dot" aria-hidden="true"></span><strong>Portfolio-ready</strong> deliverable</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ───────────────── PROGRAM HIGHLIGHTS STRIP ───────────────── -->
-    <section class="strip" id="highlights" aria-label="Program highlights">
-      <div class="container strip__grid">
-        <div class="strip__item" data-reveal>
-          <span class="strip__num">8</span>
-          <span class="strip__label">Modules</span>
-          <span class="strip__sub">Lifecycle to cost optimisation</span>
-        </div>
-        <div class="strip__item" data-reveal>
-          <span class="strip__num">100%</span>
-          <span class="strip__label">Vendor-Neutral</span>
-          <span class="strip__sub">Principles over any one stack</span>
-        </div>
-        <div class="strip__item" data-reveal>
-          <span class="strip__num">1</span>
-          <span class="strip__label">Portfolio-Ready Deliverable</span>
-          <span class="strip__sub">Ship something you can show</span>
+        <!-- Terminal-style "course manifest" — engineering credibility for a skeptical audience -->
+        <div class="term" data-reveal aria-hidden="true">
+          <div class="term__bar"><span></span><span></span><span></span><em>dctech — course manifest</em></div>
+          <pre class="term__body"><span class="c-prompt">$</span> dctech describe <span class="c-arg">nvidia-ai-infra</span>
+<span class="c-key">modules</span> ........... <span class="c-val">8</span>
+<span class="c-key">reference</span> ......... <span class="c-val">218 pages</span>
+<span class="c-key">case_studies</span> ...... <span class="c-val">finserv · healthcare · gdpr</span>
+<span class="c-key">deliverable</span> ....... <span class="c-val">design-document.pdf</span>
+<span class="c-key">certification</span> ..... <span class="c-val">practitioner assessment</span>
+<span class="c-key">prerequisites</span> ..... <span class="c-val">linux · k8s · datacenter</span>
+<span class="c-key">vendor_lock_in</span> .... <span class="c-val c-ok">none</span>
+<span class="c-prompt">$</span> <span class="c-cursor">▌</span></pre>
         </div>
       </div>
     </section>
 
-    <!-- Smooth the dark→light seam so it never "flashes" -->
-    <div class="zone-fade zone-fade--to-light" aria-hidden="true"></div>
-
-    <!-- ───────────────────── WHO SHOULD ATTEND ───────────────────── -->
-    <section class="section" id="audience">
+    <!-- ───────────────────── THE PROBLEM ───────────────────── -->
+    <section class="section" id="problem">
       <div class="container">
         <header class="section__head" data-reveal>
-          <p class="kicker kicker--brand">Who should attend</p>
-          <h2 class="section__title">Built for the engineers who run the platform</h2>
-          <p class="section__lede">If your work touches compute, networking or the cluster that keeps AI workloads alive, this program is calibrated for you.</p>
+          <p class="eyebrow">// the infrastructure gap</p>
+          <h2 class="section__title">Swapping CPUs for GPUs is the easy part.</h2>
+          <p class="section__lede">
+            The transition to AI-native infrastructure is more than a hardware refresh. Data centers are hitting
+            bottlenecks in networking (InfiniBand / RoCEv2), storage (NVMe-oF), and scheduling (Kubernetes).
+            If your team is guessing at GPU sizing or TCO modeling, the efficiency is already gone.
+          </p>
         </header>
 
-        <div class="cards">
-          <article class="card" data-reveal>
-            <div class="card__ico" aria-hidden="true">⚙️</div>
-            <h3>Infrastructure &amp; Systems Engineers</h3>
-            <p>Standing up GPU clusters, bare-metal fleets and the foundations AI teams build on.</p>
-          </article>
-          <article class="card" data-reveal>
-            <div class="card__ico" aria-hidden="true">🧩</div>
-            <h3>Platform Engineers</h3>
-            <p>Owning the internal platform — orchestration, scheduling and the developer experience around GPUs.</p>
-          </article>
-          <article class="card" data-reveal>
-            <div class="card__ico" aria-hidden="true">☁️</div>
-            <h3>Cloud &amp; Virtualization Admins</h3>
-            <p>Operating hybrid estates and extending proven ops practice to high-performance AI infrastructure.</p>
-          </article>
+        <div class="problem__grid">
+          <div class="statcard" data-reveal>
+            <span class="statcard__num">40<span class="statcard__unit">%+</span></span>
+            <span class="statcard__label">of training efficiency lost to mis-sized clusters, the wrong fabric, and starved I/O pipelines.</span>
+          </div>
+          <ul class="movelist" data-reveal>
+            <li><span class="movelist__i">01</span><div><strong>Stop learning through trial and error.</strong><p>Production GPU mistakes are expensive and slow to surface.</p></div></li>
+            <li><span class="movelist__i">02</span><div><strong>Move from Platform Administrator to AI Infrastructure Expert.</strong><p>Own the architecture decisions, not just the tickets.</p></div></li>
+            <li><span class="movelist__i">03</span><div><strong>Bridge hardware architecture and AI workload demands.</strong><p>Map what the workload needs to what the silicon and fabric can deliver.</p></div></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ───────────────────────── MODULES ───────────────────────── -->
-    <section class="section section--tint" id="modules">
+    <!-- ───────────────────── QUALIFICATION GATE ───────────────────── -->
+    <section class="section section--gate" id="gate">
+      <div class="container">
+        <div class="gate" data-reveal>
+          <div class="gate__copy">
+            <p class="eyebrow">// the filter</p>
+            <h2 class="section__title">Is this program right for your skill level?</h2>
+            <p class="section__lede">
+              This course is built for experienced infrastructure and platform professionals. Before you enrol,
+              check your baseline against the material — it takes a few minutes, and it routes you to the right
+              next step.
+            </p>
+            <a class="btn btn--primary btn--lg js-cta-quiz" href="#pricing" data-cta="gate">Launch Readiness Quiz</a>
+          </div>
+          <ul class="gate__routes" aria-hidden="false">
+            <li class="route route--pass">
+              <span class="route__tag">if you pass →</span>
+              <span class="route__dest">straight to enrolment</span>
+            </li>
+            <li class="route route--brush">
+              <span class="route__tag">if you brush up →</span>
+              <span class="route__dest"><a class="js-cta-reading" href="reading-list.html">a focused reading list</a></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── WHAT YOU WILL BUILD ───────────────────── -->
+    <section class="section" id="build">
       <div class="container">
         <header class="section__head" data-reveal>
-          <p class="kicker kicker--brand">The curriculum</p>
-          <h2 class="section__title">Eight modules, foundation to production</h2>
-          <p class="section__lede">A deliberate path from how AI workloads behave to how you scale, secure and cost-optimise them in the real world.</p>
+          <p class="eyebrow">// the deliverable</p>
+          <h2 class="section__title">You leave with a design document, not a certificate of attendance.</h2>
+          <p class="section__lede">This isn't theory. You complete the program with a portfolio-ready AI Infrastructure Design Document you can put in front of an architecture review.</p>
+        </header>
+
+        <div class="build__layout">
+          <!-- CSS mock-up of the design document -->
+          <figure class="doc" data-reveal aria-label="Mock-up of the portfolio-ready design document">
+            <div class="doc__head">
+              <span class="doc__kicker">AI INFRASTRUCTURE DESIGN</span>
+              <span class="doc__meta">v1.0 · confidential</span>
+            </div>
+            <h3 class="doc__title">Multi-Region GPU Cluster — Reference Design</h3>
+            <div class="doc__lines"><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i></div>
+            <div class="doc__diagram" aria-hidden="true">
+              <div class="node node--a">DGX</div>
+              <div class="node node--b">Spine</div>
+              <div class="node node--c">Storage</div>
+              <svg class="doc__wires" viewBox="0 0 300 90" preserveAspectRatio="none"><path d="M52 22 L150 22 M150 22 L248 22 M150 22 L150 70 M150 70 L60 70 M150 70 L240 70" /><circle cx="60" cy="70" r="2.5"/><circle cx="240" cy="70" r="2.5"/></svg>
+            </div>
+            <div class="doc__row"><span>Fabric</span><span class="mono">RoCEv2 · PFC/ECN</span></div>
+            <div class="doc__row"><span>5-yr TCO</span><span class="mono">modeled</span></div>
+          </figure>
+
+          <div class="build__takeaways">
+            <article class="card take" data-reveal>
+              <span class="take__i">01</span>
+              <h3>Architecture Sizing</h3>
+              <p>Bill-of-materials formulas for DGX, Cisco, and Dell-HPE platforms — so sizing is a calculation, not a guess.</p>
+            </article>
+            <article class="card take" data-reveal>
+              <span class="take__i">02</span>
+              <h3>Fabric Design</h3>
+              <p>Lossless network designs with PFC/ECN, mapped to InfiniBand and RoCEv2 trade-offs.</p>
+            </article>
+            <article class="card take" data-reveal>
+              <span class="take__i">03</span>
+              <h3>Decision Frameworks</h3>
+              <p>A 5-year TCO model built from three included case studies: Financial Services, Healthcare, and Multi-Region GDPR compliance.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────── MODULES ───────────────────── -->
+    <section class="section section--alt" id="modules">
+      <div class="container">
+        <header class="section__head" data-reveal>
+          <p class="eyebrow">// curriculum</p>
+          <h2 class="section__title">Eight modules. Foundation to production.</h2>
+          <p class="section__lede">A deliberate path from how AI workloads behave to how you scale, secure, and cost-optimise them under real constraints.</p>
         </header>
 
         <div class="modules" data-reveal>
-          <details class="module" name="modules">
+          <details class="module" name="modules" open>
             <summary>
               <span class="module__no">01</span>
-              <span class="module__title">AI Workload Lifecycle &amp; Infrastructure Requirements</span>
+              <span class="module__head"><span class="module__title">AI Workload Lifecycle &amp; Infrastructure Requirements</span><span class="module__tags"><i>training</i><i>fine-tuning</i><i>inference</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">How training, fine-tuning and inference workloads behave — and the infrastructure characteristics each one demands.</div>
+            <div class="module__body">How training, fine-tuning and inference workloads behave — and the distinct infrastructure characteristics each one demands before you spend a dollar on hardware.</div>
           </details>
           <details class="module" name="modules">
             <summary>
               <span class="module__no">02</span>
-              <span class="module__title">GPU Computing Platforms &amp; Architecture <span class="module__meta">(H100, NVLink, sizing, TCO)</span></span>
+              <span class="module__head"><span class="module__title">GPU Computing Platforms &amp; Architecture</span><span class="module__tags"><i>H100</i><i>NVLink/NVSwitch</i><i>sizing</i><i>TCO</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Inside modern GPU platforms: NVLink topologies, right-sizing for a workload, and total-cost-of-ownership trade-offs.</div>
+            <div class="module__body">Inside modern GPU platforms: H100 internals, NVLink/NVSwitch scale-up topologies, right-sizing for a workload, and total-cost-of-ownership trade-offs.</div>
           </details>
           <details class="module" name="modules">
             <summary>
               <span class="module__no">03</span>
-              <span class="module__title">Bare-Metal &amp; Kubernetes GPU Orchestration</span>
+              <span class="module__head"><span class="module__title">Bare-Metal &amp; Kubernetes GPU Orchestration</span><span class="module__tags"><i>NUMA</i><i>GPU Operator</i><i>device plugin</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Scheduling GPUs on bare metal and through Kubernetes — device plugins, node management and reliable orchestration.</div>
+            <div class="module__body">Scheduling GPUs on bare metal and through Kubernetes — NUMA/topology tuning, the NVIDIA GPU Operator, and reliable device-plugin orchestration.</div>
           </details>
           <details class="module" name="modules">
             <summary>
               <span class="module__no">04</span>
-              <span class="module__title">High-Performance Networking Fabrics <span class="module__meta">(RDMA, InfiniBand, RoCEv2)</span></span>
+              <span class="module__head"><span class="module__title">High-Performance Networking Fabrics</span><span class="module__tags"><i>RDMA</i><i>InfiniBand</i><i>RoCEv2</i><i>PFC/ECN</i><i>RAIL</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">The fabrics that make multi-GPU training viable: RDMA fundamentals, InfiniBand and RoCEv2 design choices.</div>
+            <div class="module__body">The fabrics that make multi-GPU training viable: RDMA fundamentals, InfiniBand vs RoCEv2, lossless Ethernet (PFC/ECN), and RAIL-optimised topologies.</div>
           </details>
           <details class="module" name="modules">
             <summary>
               <span class="module__no">05</span>
-              <span class="module__title">GPU Resource Sharing &amp; Multi-Tenant Management</span>
+              <span class="module__head"><span class="module__title">GPU Resource Sharing &amp; Multi-Tenant Management</span><span class="module__tags"><i>MIG</i><i>Run:AI</i><i>SLURM</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Partitioning, quotas and fair-share scheduling so multiple teams safely share expensive GPU capacity.</div>
+            <div class="module__body">Partitioning and fair-share so multiple teams safely share expensive capacity: MIG partitioning, Run:AI, SLURM GRES, and time-slicing trade-offs.</div>
           </details>
           <details class="module" name="modules">
             <summary>
               <span class="module__no">06</span>
-              <span class="module__title">Storage for AI Workloads <span class="module__meta">(NVMe-oF, VAST, Weka, NetApp)</span></span>
+              <span class="module__head"><span class="module__title">Storage for AI Workloads</span><span class="module__tags"><i>NVMe-oF</i><i>GPUDirect</i><i>Weka</i><i>VAST</i><i>NetApp</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Feeding the GPUs: high-throughput storage architectures and how to keep data pipelines from starving compute.</div>
+            <div class="module__body">Feeding the GPUs: NVMe-oF, GPUDirect Storage, and parallel filesystems (Weka, VAST, NetApp) so data pipelines never starve compute.</div>
           </details>
           <details class="module" name="modules">
             <summary>
               <span class="module__no">07</span>
-              <span class="module__title">Observability &amp; Operational Excellence <span class="module__meta">(DCGM, Grafana)</span></span>
+              <span class="module__head"><span class="module__title">Observability &amp; Operational Excellence</span><span class="module__tags"><i>DCGM</i><i>Grafana</i><i>XID</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Instrumenting GPU fleets with DCGM and Grafana — the metrics, dashboards and alerts that keep clusters healthy.</div>
+            <div class="module__body">Instrumenting GPU fleets with DCGM and Grafana, and diagnosing failures fast through XID error-code analysis.</div>
           </details>
           <details class="module" name="modules">
             <summary>
               <span class="module__no">08</span>
-              <span class="module__title">Hybrid Scaling, Compliance &amp; Cost Optimisation</span>
+              <span class="module__head"><span class="module__title">Hybrid Scaling, Compliance &amp; Cost Optimisation</span><span class="module__tags"><i>GDPR</i><i>HIPAA</i><i>FinOps</i><i>CapEx/OpEx</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Scaling across on-prem and cloud, meeting compliance needs, and driving down the cost of every GPU hour.</div>
+            <div class="module__body">Scaling across on-prem and cloud, meeting GDPR/HIPAA constraints, and driving down the cost of every GPU hour with a real FinOps model.</div>
           </details>
         </div>
+
+        <p class="stack" data-reveal aria-label="Stack covered">
+          <span class="stack__label">Stack covered</span>
+          <span class="stack__tags">
+            <i>H100 / H200 / B200</i><i>NVLink</i><i>InfiniBand</i><i>RoCEv2</i><i>Kubernetes</i><i>GPU Operator</i><i>MIG</i><i>Run:AI</i><i>SLURM</i><i>NVMe-oF</i><i>GPUDirect</i><i>Weka · VAST · NetApp</i><i>DCGM</i><i>Grafana</i>
+          </span>
+        </p>
       </div>
     </section>
 
-    <!-- ───────────────────────── TECH COVERED ───────────────────────── -->
-    <section class="section" id="tech">
+    <!-- ───────────────────── PRICING ───────────────────── -->
+    <section class="section" id="pricing">
       <div class="container">
-        <header class="section__head" data-reveal>
-          <p class="kicker kicker--brand">Tech covered</p>
-          <h2 class="section__title">The stack you'll actually work with</h2>
-          <p class="section__lede">Real components from the modern AI data center — not slideware.</p>
+        <header class="section__head section__head--center" data-reveal>
+          <p class="eyebrow">// enrolment</p>
+          <h2 class="section__title">One price. Full access.</h2>
+          <p class="section__lede">Everything in the program — reference material, case studies, certification assessment, and the design deliverable.</p>
         </header>
 
-        <ul class="tags" data-reveal aria-label="Technologies covered">
-          <li class="tag tag--hero">NVIDIA H100 / H200 / B200</li>
-          <li class="tag">InfiniBand</li>
-          <li class="tag">Kubernetes</li>
-          <li class="tag">Run:AI</li>
-          <li class="tag">DCGM</li>
-          <li class="tag">Grafana</li>
-          <li class="tag">NVLink</li>
-          <li class="tag">RDMA / RoCEv2</li>
-          <li class="tag">NVMe-oF</li>
-          <li class="tag">VAST · Weka · NetApp</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ───────────────── MID CTA BAND (CTA #2 — middle) ───────────────── -->
-    <section class="ctaband" aria-label="Enrol">
-      <div class="container ctaband__inner" data-reveal>
-        <div>
-          <h2 class="ctaband__title">Ready to build production-grade AI infrastructure?</h2>
-          <p class="ctaband__sub">Talk to the DC Tech team about the next cohort. Pricing shared on your callback.</p>
-        </div>
-        <a class="btn btn--primary btn--lg" href="#lead" data-cta="midband">Request Callback</a>
-      </div>
-    </section>
-
-    <!-- ───────────────────────── LEAD FORM (CTA #3 — bottom) ───────────────────────── -->
-    <section class="section section--form" id="lead">
-      <div class="container form__layout">
-        <div class="form__pitch" data-reveal>
-          <p class="kicker kicker--brand">Request a callback</p>
-          <h2 class="section__title">Let's get you into the next cohort</h2>
-          <p class="section__lede">Share your details and a DC Tech advisor will call you back with cohort dates, the full syllabus and pricing for your market.</p>
-          <ul class="form__list">
-            <li>Vendor-neutral, hands-on curriculum</li>
-            <li>Guidance from practitioners, delivery-ready</li>
-            <li>A portfolio-ready deliverable to show employers</li>
+        <div class="price" data-reveal>
+          <div class="price__badge">FULL ACCESS</div>
+          <div class="price__amount"><span class="price__cur">$</span><span class="price__num">199</span><span class="price__per">USD</span></div>
+          <!-- TODO(pricing): confirm currency localisation for India / UK markets before go-live -->
+          <p class="price__note">One-time enrolment · all 8 modules</p>
+          <ul class="price__list">
+            <li>Full access to all 8 modules</li>
+            <li>218 pages of deep-dive reference material</li>
+            <li>3 applied case studies — Financial Services · Healthcare · Multi-Region GDPR</li>
+            <li>Practitioner certification assessment</li>
+            <li>Portfolio-ready AI Infrastructure design deliverable</li>
           </ul>
-          <p class="form__contact">
-            Prefer to talk now?
-            <a class="js-whatsapp" href="#" data-channel="whatsapp">WhatsApp</a> ·
-            <a class="js-call" href="#" data-channel="call">Call us</a>
-          </p>
+          <a class="btn btn--primary btn--lg btn--block js-cta-enroll" href="#gate" data-cta="pricing">Enrol Now</a>
+          <p class="price__trust">Vendor-Neutral · Peer-Reviewed · Practice-Focused</p>
+          <p class="price__alt">Not sure yet? <a class="js-cta-quiz" href="#gate">Take the readiness assessment first →</a></p>
         </div>
+      </div>
+    </section>
 
-        <div class="form__card" data-reveal>
-          <!-- Success / error states live alongside the form and toggle via JS -->
-          <form id="lead-form" novalidate>
-            <div class="field">
-              <label for="name">Full name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required aria-required="true" />
-              <span class="field__error" data-error-for="name" hidden></span>
-            </div>
-
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-required="true" />
-              <span class="field__error" data-error-for="email" hidden></span>
-            </div>
-
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-required="true" />
-              <span class="field__error" data-error-for="phone" hidden></span>
-            </div>
-
-            <div class="field">
-              <label for="country">Country</label>
-              <select id="country" name="country" required aria-required="true">
-                <option value="" disabled selected>Select your country</option>
-                <option value="India">India</option>
-                <option value="US">US</option>
-                <option value="UK">UK</option>
-                <option value="Other">Other</option>
-              </select>
-              <span class="field__error" data-error-for="country" hidden></span>
-            </div>
-
-            <!-- Honeypot: hidden from humans, tempting to bots. Must stay named "website". -->
-            <div class="hp" aria-hidden="true">
-              <label for="website">Website</label>
-              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
-            </div>
-
-            <button class="btn btn--primary btn--lg btn--block" type="submit" data-cta="form">
-              <span class="btn__label">Request Callback</span>
-              <span class="btn__spinner" aria-hidden="true"></span>
-            </button>
-
-            <p class="form__fineprint">By submitting, you agree to be contacted by DC Tech Consulting about this program.</p>
-          </form>
-
-          <!-- Success state -->
-          <div class="form__state form__state--success" id="lead-success" role="status" tabindex="-1" hidden>
-            <div class="form__state-ico" aria-hidden="true">✓</div>
-            <h3>Thanks — you're on the list.</h3>
-            <p>A DC Tech advisor will call you back shortly with cohort dates and pricing.</p>
-          </div>
-
-          <!-- Error state -->
-          <div class="form__state form__state--error" id="lead-error" role="alert" tabindex="-1" hidden>
-            <div class="form__state-ico" aria-hidden="true">!</div>
-            <h3>That didn't go through.</h3>
-            <p>Please check your connection and try again.</p>
-            <button class="btn btn--ghost" id="lead-retry" type="button">Retry</button>
-          </div>
+    <!-- ───────────────────── FAQ ───────────────────── -->
+    <section class="section section--alt" id="faq">
+      <div class="container faq__layout">
+        <header class="section__head" data-reveal>
+          <p class="eyebrow">// faq</p>
+          <h2 class="section__title">Straight answers.</h2>
+          <p class="section__lede">Built for engineers who'd rather read the spec than the brochure.</p>
+        </header>
+        <div class="faq" data-reveal>
+          <details class="qa" name="faq" open>
+            <summary>Who is this for?<span class="module__chev" aria-hidden="true"></span></summary>
+            <div class="qa__body">SREs, Platform Engineers, Architects, and Data Center Engineers responsible for standing up or operating GPU infrastructure.</div>
+          </details>
+          <details class="qa" name="faq">
+            <summary>What are the prerequisites?<span class="module__chev" aria-hidden="true"></span></summary>
+            <div class="qa__body">Solid working knowledge of Linux, Kubernetes, and enterprise data center basics. The readiness assessment will tell you if you're set.</div>
+          </details>
+          <details class="qa" name="faq">
+            <summary>Is there a certificate?<span class="module__chev" aria-hidden="true"></span></summary>
+            <div class="qa__body">Yes — a practitioner certification awarded on successful completion of the case-study-based assessment.</div>
+          </details>
+          <details class="qa" name="faq">
+            <summary>Is it tied to one vendor?<span class="module__chev" aria-hidden="true"></span></summary>
+            <div class="qa__body">No. The curriculum is vendor-neutral — principles and decision frameworks that apply across DGX, Cisco, Dell-HPE, and the major fabrics and storage platforms.</div>
+          </details>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Smooth the light→dark seam into the footer -->
-  <div class="zone-fade zone-fade--to-dark" aria-hidden="true"></div>
-
   <!-- ───────────────────────── FOOTER ───────────────────────── -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <span class="brand__chip brand__chip--sm">
-          <img src="assets/dctech-logo.png" alt="DC Tech Consulting" width="32" height="32" />
-        </span>
+        <span class="brand__chip brand__chip--sm"><img src="assets/dctech-logo.png" alt="DC Tech" width="30" height="30" /></span>
         <div>
-          <p class="footer__name">DC Tech Consulting</p>
-          <p class="footer__tag">AI infrastructure training, fronted by DC Tech.</p>
+          <p class="footer__name">DC Tech</p>
+          <p class="footer__tag">Vendor-neutral AI infrastructure training for practitioners.</p>
         </div>
       </div>
-
       <div class="footer__cta">
-        <a class="btn btn--primary" href="#lead" data-cta="footer">Request Callback</a>
-        <p class="footer__links">
-          <a class="js-whatsapp" href="#" data-channel="whatsapp">WhatsApp</a> ·
-          <a class="js-call" href="#" data-channel="call">Call</a>
-        </p>
+        <a class="btn btn--primary js-cta-quiz" href="#gate" data-cta="footer">Take the Assessment</a>
+        <p class="footer__links"><a href="#modules">Syllabus</a> · <a href="reading-list.html">Reading list</a> · <a href="#pricing">Pricing</a></p>
       </div>
     </div>
     <div class="container footer__base">
       <!-- TODO(domain): final domain/URL TBD -->
-      <p>© <span id="year">2026</span> DC Tech Consulting. All rights reserved.</p>
-      <p class="footer__muted">NVIDIA, H100, H200 and B200 are trademarks of NVIDIA Corporation. This is an independent, vendor-neutral training program.</p>
+      <p>© <span id="year">2026</span> DC Tech. All rights reserved.</p>
+      <p class="footer__muted">NVIDIA, H100, H200, B200, DGX and NVLink are trademarks of NVIDIA Corporation. This is an independent, vendor-neutral training program and is not affiliated with or endorsed by NVIDIA.</p>
     </div>
   </footer>
 
