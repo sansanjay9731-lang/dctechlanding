@@ -97,7 +97,90 @@
     if (el) el.textContent = String(new Date().getFullYear());
   }
 
-  function init() { wireCtas(); initReveal(); initYear(); }
+  /* ---------------------------------------------------------------
+     COUNT-UP ANIMATION — runs once when specrow scrolls into view.
+     Easing: ease-out cubic. Each stat card staggers by 80ms.
+     --------------------------------------------------------------- */
+  function initCountUp() {
+    const dts = document.querySelectorAll(".specrow dt[data-count]");
+    if (!dts.length) return;
+
+    // Ease-out cubic: fast start → slows to final value
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function animateCounter(el, target, duration, delay) {
+      setTimeout(function () {
+        el.classList.add("counting");
+        const start = performance.now();
+        function step(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased   = easeOutCubic(progress);
+          el.textContent = Math.round(eased * target);
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target;
+            el.classList.remove("counting");
+          }
+        }
+        requestAnimationFrame(step);
+      }, delay);
+    }
+
+    // Fire once when the specrow enters the viewport
+    if (!("IntersectionObserver" in window)) {
+      dts.forEach(function (dt) { dt.textContent = dt.dataset.count; });
+      return;
+    }
+    const io = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        dts.forEach(function (dt, i) {
+          const target = parseInt(dt.dataset.count, 10);
+          // Duration scales with magnitude so small numbers don't feel rushed
+          const duration = target >= 100 ? 1400 : target >= 10 ? 900 : 600;
+          animateCounter(dt, target, duration, i * 80);
+        });
+      });
+    }, { threshold: 0.5 });
+
+    // Observe the parent dl (specrow)
+    const specrow = dts[0].closest(".specrow");
+    if (specrow) io.observe(specrow);
+  }
+
+  /* ---------------------------------------------------------------
+     STICKY MOBILE CTA — slides up after hero, hides near pricing.
+     --------------------------------------------------------------- */
+  function initStickyCta() {
+    const bar = document.getElementById("sticky-cta");
+    if (!bar) return;
+    const hero    = document.querySelector(".hero");
+    const pricing = document.getElementById("pricing");
+    if (!hero) return;
+
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        const scrollY       = window.scrollY;
+        const heroBottom    = hero.getBoundingClientRect().bottom + scrollY;
+        const pricingTop    = pricing ? pricing.getBoundingClientRect().top + scrollY : Infinity;
+        const pastHero      = scrollY > heroBottom - 80;
+        const nearPricing   = scrollY >= pricingTop - 120;
+        bar.classList.toggle("is-visible", pastHero && !nearPricing);
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // run once on load
+  }
+
+  function init() { wireCtas(); initReveal(); initYear(); initCountUp(); initStickyCta(); }
+
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

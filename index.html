@@ -61,17 +61,20 @@
             <strong>AI-assisted learning platform</strong>, and a <strong>portfolio-ready design deliverable</strong>.
           </p>
           <div class="hero__actions" data-reveal>
-            <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="hero">Enroll Now</a>
+            <div class="hero__cta-wrap">
+              <a class="btn btn--primary btn--lg btn--pulse js-cta-enroll" href="#pricing" data-cta="hero">Enroll Now — $5</a>
+              <span class="hero__urgency">⚡ Limited-time offer · <strong>$420 → $5</strong></span>
+            </div>
             <a class="btn btn--ghost btn--lg js-cta-syllabus" href="#modules" data-cta="hero-syllabus">
               View Full Syllabus
               <span class="btn__tag">PDF</span>
             </a>
           </div>
           <dl class="specrow" data-reveal>
-            <div><dt>218</dt><dd>pages reference</dd></div>
-            <div><dt>8</dt><dd>modules</dd></div>
-            <div><dt>8</dt><dd>progress quizzes</dd></div>
-            <div><dt>1</dt><dd>design deliverable</dd></div>
+            <div><dt data-count="218">0</dt><dd>pages reference</dd></div>
+            <div><dt data-count="8">0</dt><dd>modules</dd></div>
+            <div><dt data-count="8">0</dt><dd>progress quizzes</dd></div>
+            <div><dt data-count="1">0</dt><dd>design deliverable</dd></div>
           </dl>
         </div>
 
@@ -142,6 +145,14 @@
       </div>
     </section>
 
+    <!-- ───────────────────── MID-FUNNEL CTA INTERRUPT ───────────────────── -->
+    <section class="cta-interrupt" aria-label="Enroll interrupt">
+      <div class="container cta-interrupt__inner">
+        <p class="cta-interrupt__copy">This is the gap between infrastructure engineers who guess at GPU sizing — and those who don't.</p>
+        <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="interrupt-problem">Close the gap for $5 →</a>
+      </div>
+    </section>
+
     <!-- ───────────────────── WHAT YOU WILL BUILD ───────────────────── -->
     <section class="section" id="build">
       <div class="container">
@@ -188,6 +199,18 @@
             </article>
           </div>
         </div>
+
+        <!-- Inline CTA after deliverable -->
+        <div class="inline-cta" data-reveal>
+          <div class="inline-cta__proof">
+            <span class="inline-cta__avatars" aria-hidden="true">
+              <span>👨‍💻</span><span>👩‍💻</span><span>👨‍🔧</span><span>👩‍🔬</span><span>👨‍💼</span>
+            </span>
+            <span class="inline-cta__social">Infrastructure engineers are already building with this framework</span>
+          </div>
+          <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="deliverable-inline">Get instant access for $5</a>
+        </div>
+
       </div>
     </section>
 
@@ -273,6 +296,21 @@
             <i>H100 / H200 / B200</i><i>NVLink</i><i>InfiniBand</i><i>RoCEv2</i><i>Kubernetes</i><i>GPU Operator</i><i>MIG</i><i>Run:AI</i><i>SLURM</i><i>NVMe-oF</i><i>GPUDirect</i><i>Weka · VAST · NetApp</i><i>DCGM</i><i>Grafana</i>
           </span>
         </p>
+
+        <!-- CTA after modules -->
+        <div class="modules-cta" data-reveal>
+          <div class="modules-cta__inner">
+            <div>
+              <p class="modules-cta__label">Ready to go from practitioner to architect?</p>
+              <p class="modules-cta__sub">8 modules · 218 pages · AI-assisted platform · practitioner cert</p>
+            </div>
+            <div class="modules-cta__actions">
+              <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="modules-enroll">Enroll Now — $5</a>
+              <a class="btn btn--ghost btn--lg js-cta-syllabus" href="#modules" data-cta="modules-syllabus">Download Syllabus <span class="btn__tag">PDF</span></a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -334,6 +372,16 @@
             <div class="qa__body">No. The curriculum is vendor-neutral — principles and decision frameworks that apply across DGX, Cisco, Dell-HPE, and the major fabrics and storage platforms.</div>
           </details>
         </div>
+
+        <!-- CTA below FAQ -->
+        <div class="faq-cta" data-reveal>
+          <p class="faq-cta__copy">Still on the fence? For $5, the risk is zero.</p>
+          <div class="faq-cta__actions">
+            <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="faq-enroll">Enroll for $5 →</a>
+            <a class="btn btn--ghost btn--lg js-cta-reading" href="reading-list.html" data-cta="faq-reading">Browse reading list first</a>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -360,6 +408,17 @@
       <p class="footer__muted">NVIDIA, H100, H200, B200, DGX and NVLink are trademarks of NVIDIA Corporation. This is an independent, vendor-neutral training program and is not affiliated with or endorsed by NVIDIA.</p>
     </div>
   </footer>
+
+  <!-- ───────────────────────── STICKY MOBILE CTA ───────────────────────── -->
+  <div class="sticky-cta" id="sticky-cta" aria-label="Sticky enroll bar" role="complementary">
+    <div class="sticky-cta__inner">
+      <div class="sticky-cta__info">
+        <span class="sticky-cta__name">GPU-Accelerated AI Infra</span>
+        <span class="sticky-cta__price"><s>$420</s> $5</span>
+      </div>
+      <a class="btn btn--primary js-cta-enroll" href="#pricing" data-cta="sticky">Enroll Now</a>
+    </div>
+  </div>
 
   <script src="script.js" defer></script>
 </body>
