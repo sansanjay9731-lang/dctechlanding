@@ -537,13 +537,7 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
 }
 
 /* Restore 2-column hero on desktop */
-@media (min-width: 900px) {
-  .hero__inner { grid-template-columns: 1.15fr .85fr !important; gap: var(--s-8); align-items: center; }
-}
-/* Hide chip on mobile — hero stays single column */
-@media (max-width: 899px) {
-  .hero__visual { display: none; }
-}
+
 
 /* offer band — free pricing + the two headline features, high in the hero */
 .hero__offer { position: relative; display: grid; gap: var(--s-4); margin-top: var(--s-7); }
@@ -581,6 +575,11 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
 @media (min-width: 900px) {
   .hero__inner { grid-template-columns: 1.08fr .92fr; gap: var(--s-9); }
   .hero__lede { font-size: 1.25rem; }
+}
+
+/* Hide GPU chip on mobile — hero stays single column */
+@media (max-width: 899px) {
+  .hero__visual { display: none; }
 }
 
 /* ---------- PROBLEM ---------- */
@@ -831,51 +830,45 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
   }
 }
 
-/* --- NAV: keep enroll CTA button always visible --- */
-@media (max-width: 900px) {
+/* --- NAV: hide links on mobile, keep logo + CTA --- */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
   .nav__inner { justify-content: space-between; }
   .nav__cta { margin-left: auto; }
+}
+@media (min-width: 769px) and (max-width: 900px) {
+  .nav__inner { justify-content: space-between; }
+  .nav__cta { margin-left: auto; }
+  .nav__links a { font-size: .85rem; }
 }
 
 /* --- HERO --- */
 @media (max-width: 640px) {
-  .hero { padding-block: var(--s-8) var(--s-6); }
-  .hero__title { font-size: clamp(1.9rem, 7vw, 2.6rem); margin-bottom: var(--s-4); }
-  .hero__lede { font-size: 1rem; }
+  .hero { padding-block: var(--s-7) var(--s-6); }
+  .hero__title { font-size: clamp(2rem, 8vw, 2.8rem); margin-bottom: var(--s-4); }
+  .hero__lede { font-size: .9375rem; line-height: 1.65; }
 
-  /* Hero actions: stack vertically, buttons full-width */
+  /* Actions: stack + full-width */
   .hero__actions {
     flex-direction: column;
     align-items: stretch;
     gap: var(--s-3);
     margin-top: var(--s-5);
   }
-  .hero__cta-wrap {
-    width: 100%;
-    align-items: stretch;
-  }
-  .hero__cta-wrap .btn--lg { width: 100%; }
-  .hero__urgency {
-    text-align: center;
-    font-size: .75rem;
-  }
-  .hero__actions .btn--ghost {
+  .hero__actions .btn--lg {
     width: 100%;
     justify-content: center;
   }
 
-  /* Specrow: 2-column grid on mobile */
+  /* Specrow: 2×2 grid */
   .specrow {
     grid-template-columns: 1fr 1fr;
     gap: var(--s-2);
-    margin-top: var(--s-6);
+    margin-top: var(--s-5);
   }
   .specrow > div { padding: var(--s-3); }
-  .specrow dt { font-size: 1.5rem; }
-  .specrow dd { font-size: .68rem; letter-spacing: .05em; }
-
-  /* Terminal block: reduce font, allow scroll */
-  .term__body { font-size: .75rem; padding: var(--s-4); }
+  .specrow dt { font-size: 1.4rem; }
+  .specrow dd { font-size: .65rem; letter-spacing: .04em; }
 }
 
 /* --- OFFER BAND (hero__offer) --- */
