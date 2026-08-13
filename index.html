@@ -25,7 +25,7 @@
 <body>
   <a class="skip-link" href="#pricing">Skip to enrollment</a>
 
-  <!-- ───────────────────────── NAV (CTA — top) ───────────────────────── -->
+  <!-- ───────────────────────── NAV ───────────────────────── -->
   <header class="nav" id="top">
     <div class="container nav__inner">
       <a class="brand" href="#top" aria-label="DC Tech — home">
@@ -34,7 +34,6 @@
       </a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#problem">Problem</a>
-        <a href="#build">Deliverable</a>
         <a href="#modules">Modules</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
@@ -61,10 +60,7 @@
             <strong>AI-assisted learning platform</strong>, and a <strong>portfolio-ready design deliverable</strong>.
           </p>
           <div class="hero__actions" data-reveal>
-            <div class="hero__cta-wrap">
-              <a class="btn btn--primary btn--lg btn--pulse js-cta-enroll" href="#pricing" data-cta="hero">Enroll Now — $5</a>
-              <span class="hero__urgency">⚡ Limited-time offer · <strong>$420 → $5</strong></span>
-            </div>
+            <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="hero">Enroll Now — $5</a>
             <a class="btn btn--ghost btn--lg js-cta-syllabus" href="#modules" data-cta="hero-syllabus">
               View Full Syllabus
               <span class="btn__tag">PDF</span>
@@ -77,44 +73,6 @@
             <div><dt data-count="1">0</dt><dd>design deliverable</dd></div>
           </dl>
         </div>
-
-        <!-- Terminal-style "course manifest" — engineering credibility for a skeptical audience -->
-        <div class="term" data-reveal aria-hidden="true">
-          <div class="term__bar"><span></span><span></span><span></span><em>dctech — course manifest</em></div>
-          <pre class="term__body"><span class="c-prompt">$</span> dctech describe <span class="c-arg">nvidia-ai-infra</span>
-<span class="c-key">modules</span> ........... <span class="c-val">8</span>
-<span class="c-key">reference</span> ......... <span class="c-val">218 pages</span>
-<span class="c-key">platform</span> .......... <span class="c-val c-ok">AI-assisted</span>
-<span class="c-key">progress</span> .......... <span class="c-val">quiz-tracked</span>
-<span class="c-key">deliverable</span> ....... <span class="c-val">design-document.pdf</span>
-<span class="c-key">certification</span> ..... <span class="c-val">practitioner assessment</span>
-<span class="c-key">prerequisites</span> ..... <span class="c-val">linux · k8s · datacenter</span>
-<span class="c-key">vendor_lock_in</span> .... <span class="c-val c-ok">none</span>
-<span class="c-prompt">$</span> <span class="c-cursor">▌</span></pre>
-        </div>
-      </div>
-
-      <!-- Offer + feature highlights — discounted pricing and the two headline features, up top -->
-      <div class="container hero__offer" data-reveal>
-        <div class="offer">
-          <span class="offer__label">Course fee</span>
-          <p class="offer__price">
-            <s class="offer__was">$420</s>
-            <span class="offer__free">$5</span>
-          </p>
-        </div>
-        <div class="offer__feats">
-          <article class="ofeat">
-            <span class="ofeat__badge ofeat__badge--ai" aria-hidden="true">AI</span>
-            <h3 class="ofeat__title">AI-Assisted Platform</h3>
-            <p class="ofeat__desc">Personalized guidance and content powered by AI, tailored to how you learn best.</p>
-          </article>
-          <article class="ofeat">
-            <span class="ofeat__badge ofeat__badge--qz" aria-hidden="true">Qz</span>
-            <h3 class="ofeat__title">Quiz-Tracked Growth</h3>
-            <p class="ofeat__desc">Built-in quiz assessments after every module to track your progress as you grow.</p>
-          </article>
-        </div>
       </div>
     </section>
 
@@ -126,7 +84,7 @@
           <h2 class="section__title">Swapping CPUs for GPUs is the easy part.</h2>
           <p class="section__lede">
             The transition to AI-native infrastructure is more than a hardware refresh. Data centers are hitting
-            bottlenecks in networking (InfiniBand / RoCEv2), storage (NVMe-oF), and scheduling (Kubernetes).
+            bottlenecks in networking, storage, and scheduling.
             If your team is guessing at GPU sizing or TCO modeling, the efficiency is already gone.
           </p>
         </header>
@@ -145,16 +103,8 @@
       </div>
     </section>
 
-    <!-- ───────────────────── MID-FUNNEL CTA INTERRUPT ───────────────────── -->
-    <section class="cta-interrupt" aria-label="Enroll interrupt">
-      <div class="container cta-interrupt__inner">
-        <p class="cta-interrupt__copy">This is the gap between infrastructure engineers who guess at GPU sizing — and those who don't.</p>
-        <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="interrupt-problem">Close the gap for $5 →</a>
-      </div>
-    </section>
-
     <!-- ───────────────────── WHAT YOU WILL BUILD ───────────────────── -->
-    <section class="section" id="build">
+    <section class="section section--alt" id="build">
       <div class="container">
         <header class="section__head" data-reveal>
           <p class="eyebrow">// the deliverable</p>
@@ -199,23 +149,11 @@
             </article>
           </div>
         </div>
-
-        <!-- Inline CTA after deliverable -->
-        <div class="inline-cta" data-reveal>
-          <div class="inline-cta__proof">
-            <span class="inline-cta__avatars" aria-hidden="true">
-              <span>👨‍💻</span><span>👩‍💻</span><span>👨‍🔧</span><span>👩‍🔬</span><span>👨‍💼</span>
-            </span>
-            <span class="inline-cta__social">Infrastructure engineers are already building with this framework</span>
-          </div>
-          <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="deliverable-inline">Get instant access for $5</a>
-        </div>
-
       </div>
     </section>
 
     <!-- ───────────────────── MODULES ───────────────────── -->
-    <section class="section section--alt" id="modules">
+    <section class="section" id="modules">
       <div class="container">
         <header class="section__head" data-reveal>
           <p class="eyebrow">// curriculum</p>
@@ -251,7 +189,7 @@
           <details class="module" name="modules">
             <summary>
               <span class="module__no">04</span>
-              <span class="module__head"><span class="module__title">High-Performance Networking Fabrics</span><span class="module__tags"><i>RDMA</i><i>InfiniBand</i><i>RoCEv2</i><i>PFC/ECN</i><i>RAIL</i></span></span>
+              <span class="module__head"><span class="module__title">High-Performance Networking Fabrics</span><span class="module__tags"><i>RDMA</i><i>InfiniBand</i><i>RoCEv2</i><i>PFC/ECN</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
             <div class="module__body">The fabrics that make multi-GPU training viable: RDMA fundamentals, InfiniBand vs RoCEv2, lossless Ethernet (PFC/ECN), and RAIL-optimised topologies.</div>
@@ -296,31 +234,16 @@
             <i>H100 / H200 / B200</i><i>NVLink</i><i>InfiniBand</i><i>RoCEv2</i><i>Kubernetes</i><i>GPU Operator</i><i>MIG</i><i>Run:AI</i><i>SLURM</i><i>NVMe-oF</i><i>GPUDirect</i><i>Weka · VAST · NetApp</i><i>DCGM</i><i>Grafana</i>
           </span>
         </p>
-
-        <!-- CTA after modules -->
-        <div class="modules-cta" data-reveal>
-          <div class="modules-cta__inner">
-            <div>
-              <p class="modules-cta__label">Ready to go from practitioner to architect?</p>
-              <p class="modules-cta__sub">8 modules · 218 pages · AI-assisted platform · practitioner cert</p>
-            </div>
-            <div class="modules-cta__actions">
-              <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="modules-enroll">Enroll Now — $5</a>
-              <a class="btn btn--ghost btn--lg js-cta-syllabus" href="#modules" data-cta="modules-syllabus">Download Syllabus <span class="btn__tag">PDF</span></a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- ───────────────────── PRICING ───────────────────── -->
-    <section class="section" id="pricing">
+    <section class="section section--alt" id="pricing">
       <div class="container">
         <header class="section__head section__head--center" data-reveal>
           <p class="eyebrow">// enrollment</p>
           <h2 class="section__title">One price. Everything included.</h2>
-          <p class="section__lede">Everything in the program — reference material, an AI-assisted learning platform, progress-tracking quiz assessments, certification, and the design deliverable.</p>
+          <p class="section__lede">Reference material, AI-assisted learning platform, quiz assessments, certification, and the design deliverable — all in.</p>
         </header>
 
         <div class="price" data-reveal>
@@ -338,8 +261,7 @@
             <li>Practitioner certification assessment</li>
             <li>Portfolio-ready AI Infrastructure design deliverable</li>
           </ul>
-          <a class="btn btn--primary btn--lg btn--block js-cta-enroll" href="#pricing" data-cta="pricing">Pay Now</a>
-          <!-- Point-of-purchase disclosure: payment gateways expect the terms to be reachable from checkout. -->
+          <a class="btn btn--primary btn--lg btn--block js-cta-enroll" href="#pricing" data-cta="pricing">Enroll Now — $5</a>
           <p class="price__terms">By continuing you agree to our <a href="terms.html">Terms &amp; Conditions</a> and <a href="terms.html#refunds">Refund Policy</a>.</p>
           <p class="price__trust">Vendor-Neutral · Peer-Reviewed · Practice-Focused</p>
         </div>
@@ -347,7 +269,7 @@
     </section>
 
     <!-- ───────────────────── FAQ ───────────────────── -->
-    <section class="section section--alt" id="faq">
+    <section class="section" id="faq">
       <div class="container faq__layout">
         <header class="section__head" data-reveal>
           <p class="eyebrow">// faq</p>
@@ -372,16 +294,6 @@
             <div class="qa__body">No. The curriculum is vendor-neutral — principles and decision frameworks that apply across DGX, Cisco, Dell-HPE, and the major fabrics and storage platforms.</div>
           </details>
         </div>
-
-        <!-- CTA below FAQ -->
-        <div class="faq-cta" data-reveal>
-          <p class="faq-cta__copy">Still on the fence? For $5, the risk is zero.</p>
-          <div class="faq-cta__actions">
-            <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="faq-enroll">Enroll for $5 →</a>
-            <a class="btn btn--ghost btn--lg js-cta-reading" href="reading-list.html" data-cta="faq-reading">Browse reading list first</a>
-          </div>
-        </div>
-
       </div>
     </section>
   </main>
@@ -403,22 +315,10 @@
       </div>
     </div>
     <div class="container footer__base">
-      <!-- TODO(domain): final domain/URL TBD -->
       <p>© <span id="year">2026</span> DC Tech. All rights reserved.</p>
       <p class="footer__muted">NVIDIA, H100, H200, B200, DGX and NVLink are trademarks of NVIDIA Corporation. This is an independent, vendor-neutral training program and is not affiliated with or endorsed by NVIDIA.</p>
     </div>
   </footer>
-
-  <!-- ───────────────────────── STICKY MOBILE CTA ───────────────────────── -->
-  <div class="sticky-cta" id="sticky-cta" aria-label="Sticky enroll bar" role="complementary">
-    <div class="sticky-cta__inner">
-      <div class="sticky-cta__info">
-        <span class="sticky-cta__name">GPU-Accelerated AI Infra</span>
-        <span class="sticky-cta__price"><s>$420</s> $5</span>
-      </div>
-      <a class="btn btn--primary js-cta-enroll" href="#pricing" data-cta="sticky">Enroll Now</a>
-    </div>
-  </div>
 
   <script src="script.js" defer></script>
 </body>
