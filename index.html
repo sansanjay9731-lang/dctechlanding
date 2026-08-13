@@ -73,6 +73,71 @@
             <div><dt data-count="1">0</dt><dd>design deliverable</dd></div>
           </dl>
         </div>
+
+        <!-- GPU Processor Motion Graphic -->
+        <div class="hero__visual" aria-hidden="true">
+          <div class="gpu" id="gpu">
+            <div class="gpu__outer">
+              <div class="gpu__pkg">
+                <!-- HBM3 Left -->
+                <div class="gpu__hbm gpu__hbm--l">
+                  <span class="gpu__hbm-label">HBM3</span>
+                  <div class="gpu__hbm-stack">
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                  </div>
+                  <div class="gpu__hbm-stack">
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                  </div>
+                  <div class="gpu__hbm-stack">
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                  </div>
+                </div>
+
+                <!-- GPU Die -->
+                <div class="gpu__die">
+                  <div class="gpu__die-top">
+                    <span class="gpu__die-brand">NVIDIA</span>
+                    <span class="gpu__die-model">H100 SXM5</span>
+                  </div>
+                  <div class="gpu__cores" id="gpu-cores"></div>
+                  <div class="gpu__l2">L2 Cache · 50 MB</div>
+                  <div class="gpu__nvlink">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <!-- HBM3 Right -->
+                <div class="gpu__hbm gpu__hbm--r">
+                  <span class="gpu__hbm-label">HBM3</span>
+                  <div class="gpu__hbm-stack">
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                  </div>
+                  <div class="gpu__hbm-stack">
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                  </div>
+                  <div class="gpu__hbm-stack">
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                    <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SVG overlay: data flow paths + particles -->
+              <svg class="gpu__svg" id="gpu-svg" viewBox="0 0 360 420"
+                   preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"></svg>
+            </div>
+
+            <div class="gpu__glow"></div>
+          </div>
+          <p class="gpu__caption">NVIDIA H100 SXM5 · 80 GB HBM3 · 132 SM · NVLink 4.0</p>
+        </div>
+
       </div>
     </section>
 
