@@ -228,27 +228,14 @@
       }, delay);
     }
 
-    // Fire once when the specrow enters the viewport
-    if (!("IntersectionObserver" in window)) {
-      dts.forEach(function (dt) { dt.textContent = dt.dataset.count; });
-      return;
-    }
-    const io = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        observer.disconnect();
-        dts.forEach(function (dt, i) {
-          const target = parseInt(dt.dataset.count, 10);
-          // Duration scales with magnitude so small numbers don't feel rushed
-          const duration = target >= 100 ? 1400 : target >= 10 ? 900 : 600;
-          animateCounter(dt, target, duration, i * 80);
-        });
+    // Fire after hero-in animation completes (specrow is above fold — no IO needed)
+    setTimeout(function () {
+      dts.forEach(function (dt, i) {
+        var target = parseInt(dt.dataset.count, 10);
+        var duration = target >= 100 ? 1400 : target >= 10 ? 900 : 600;
+        animateCounter(dt, target, duration, i * 80);
       });
-    }, { threshold: 0.5 });
-
-    // Observe the parent dl (specrow)
-    const specrow = dts[0].closest(".specrow");
-    if (specrow) io.observe(specrow);
+    }, 600);
   }
 
   /* ---------------------------------------------------------------
@@ -279,7 +266,7 @@
     onScroll(); // run once on load
   }
 
-  function init() { wireCtas(); initReveal(); initYear(); initGpuChip(); initCountUp(); initStickyCta(); }
+  function init() { wireCtas(); initYear(); initGpuChip(); initCountUp(); }
 
 
 

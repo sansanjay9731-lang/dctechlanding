@@ -20,12 +20,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" />
 
   <link rel="stylesheet" href="styles.css" />
-  <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#pricing">Skip to enrollment</a>
 
-  <!-- ───────────────────────── NAV ───────────────────────── -->
+  <!-- NAV -->
   <header class="nav" id="top">
     <div class="container nav__inner">
       <a class="brand" href="#top" aria-label="DC Tech — home">
@@ -43,7 +42,7 @@
   </header>
 
   <main id="main">
-    <!-- ───────────────────────── HERO ───────────────────────── -->
+    <!-- HERO -->
     <section class="hero">
       <div class="hero__bg" aria-hidden="true">
         <div class="grid-tex"></div>
@@ -53,20 +52,19 @@
       <div class="container hero__inner">
         <div class="hero__copy">
           <p class="eyebrow hero-in" style="--d:0s">// vendor-neutral curriculum · 8 modules · practitioner cert</p>
-          <h1 class="hero__title hero-in" style="--d:.1s">Stop treating GPU clusters like <span class="accent">generic servers.</span></h1>
-          <p class="hero__lede hero-in" style="--d:.2s">
+          <h1 class="hero__title hero-in" style="--d:.12s">Stop treating GPU clusters like <span class="accent">generic servers.</span></h1>
+          <p class="hero__lede hero-in" style="--d:.24s">
             The vendor-neutral curriculum for infrastructure professionals to architect, deploy, and scale
-            AI environments — <strong>218 pages</strong> of deep-dive reference material, an
+            AI environments — <strong>218 pages</strong> of reference material, an
             <strong>AI-assisted learning platform</strong>, and a <strong>portfolio-ready design deliverable</strong>.
           </p>
-          <div class="hero__actions hero-in" style="--d:.32s">
+          <div class="hero__actions hero-in" style="--d:.36s">
             <a class="btn btn--primary btn--lg js-cta-enroll" href="#pricing" data-cta="hero">Enroll Now — $5</a>
             <a class="btn btn--ghost btn--lg js-cta-syllabus" href="#modules" data-cta="hero-syllabus">
-              View Full Syllabus
-              <span class="btn__tag">PDF</span>
+              View Full Syllabus <span class="btn__tag">PDF</span>
             </a>
           </div>
-          <dl class="specrow hero-in" style="--d:.44s">
+          <dl class="specrow hero-in" style="--d:.48s" id="specrow">
             <div><dt data-count="218">0</dt><dd>pages reference</dd></div>
             <div><dt data-count="8">0</dt><dd>modules</dd></div>
             <div><dt data-count="8">0</dt><dd>progress quizzes</dd></div>
@@ -95,7 +93,6 @@
                     <div class="gpu__hbm-chip"></div><div class="gpu__hbm-chip"></div>
                   </div>
                 </div>
-
                 <!-- GPU Die -->
                 <div class="gpu__die">
                   <div class="gpu__die-top">
@@ -109,7 +106,6 @@
                     <span></span><span></span><span></span>
                   </div>
                 </div>
-
                 <!-- HBM3 Right -->
                 <div class="gpu__hbm gpu__hbm--r">
                   <span class="gpu__hbm-label">HBM3</span>
@@ -127,24 +123,20 @@
                   </div>
                 </div>
               </div>
-
-              <!-- SVG overlay: data flow paths + particles -->
               <svg class="gpu__svg" id="gpu-svg" viewBox="0 0 360 420"
                    preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"></svg>
             </div>
-
             <div class="gpu__glow"></div>
           </div>
           <p class="gpu__caption">NVIDIA H100 SXM5 · 80 GB HBM3 · 132 SM · NVLink 4.0</p>
         </div>
-
       </div>
     </section>
 
-    <!-- ───────────────────── THE PROBLEM ───────────────────── -->
+    <!-- THE PROBLEM -->
     <section class="section" id="problem">
       <div class="container">
-        <header class="section__head" data-reveal>
+        <header class="section__head">
           <p class="eyebrow">// the infrastructure gap</p>
           <h2 class="section__title">Swapping CPUs for GPUs is the easy part.</h2>
           <p class="section__lede">
@@ -153,13 +145,12 @@
             If your team is guessing at GPU sizing or TCO modeling, the efficiency is already gone.
           </p>
         </header>
-
         <div class="problem__grid">
-          <div class="statcard" data-reveal>
+          <div class="statcard">
             <span class="statcard__num">40<span class="statcard__unit">%+</span></span>
             <span class="statcard__label">of training efficiency lost to mis-sized clusters, the wrong fabric, and starved I/O pipelines.</span>
           </div>
-          <ul class="movelist" data-reveal>
+          <ul class="movelist">
             <li><span class="movelist__i">01</span><div><strong>Stop learning through trial and error.</strong><p>Production GPU mistakes are expensive and slow to surface.</p></div></li>
             <li><span class="movelist__i">02</span><div><strong>Move from Platform Administrator to AI Infrastructure Expert.</strong><p>Own the architecture decisions, not just the tickets.</p></div></li>
             <li><span class="movelist__i">03</span><div><strong>Bridge hardware architecture and AI workload demands.</strong><p>Map what the workload needs to what the silicon and fabric can deliver.</p></div></li>
@@ -168,18 +159,16 @@
       </div>
     </section>
 
-    <!-- ───────────────────── WHAT YOU WILL BUILD ───────────────────── -->
+    <!-- WHAT YOU WILL BUILD -->
     <section class="section section--alt" id="build">
       <div class="container">
-        <header class="section__head" data-reveal>
+        <header class="section__head">
           <p class="eyebrow">// the deliverable</p>
           <h2 class="section__title">You leave with a design document, not a certificate of attendance.</h2>
           <p class="section__lede">This isn't theory. You complete the program with a portfolio-ready AI Infrastructure Design Document you can put in front of an architecture review.</p>
         </header>
-
         <div class="build__layout">
-          <!-- CSS mock-up of the design document -->
-          <figure class="doc" data-reveal aria-label="Mock-up of the portfolio-ready design document">
+          <figure class="doc" aria-label="Mock-up of the portfolio-ready design document">
             <div class="doc__head">
               <span class="doc__kicker">AI INFRASTRUCTURE DESIGN</span>
               <span class="doc__meta">v1.0 · confidential</span>
@@ -195,19 +184,18 @@
             <div class="doc__row"><span>Fabric</span><span class="mono">RoCEv2 · PFC/ECN</span></div>
             <div class="doc__row"><span>5-yr TCO</span><span class="mono">modeled</span></div>
           </figure>
-
           <div class="build__takeaways">
-            <article class="card take" data-reveal>
+            <article class="card take">
               <span class="take__i">01</span>
               <h3>Architecture Sizing</h3>
               <p>Bill-of-materials formulas for DGX, Cisco, and Dell-HPE platforms — so sizing is a calculation, not a guess.</p>
             </article>
-            <article class="card take" data-reveal>
+            <article class="card take">
               <span class="take__i">02</span>
               <h3>Fabric Design</h3>
               <p>Lossless network designs with PFC/ECN, mapped to InfiniBand and RoCEv2 trade-offs.</p>
             </article>
-            <article class="card take" data-reveal>
+            <article class="card take">
               <span class="take__i">03</span>
               <h3>Decision Frameworks</h3>
               <p>A 5-year TCO model and reusable decision frameworks for sizing, fabric selection, and buy-vs-build trade-offs.</p>
@@ -217,16 +205,15 @@
       </div>
     </section>
 
-    <!-- ───────────────────── MODULES ───────────────────── -->
+    <!-- MODULES -->
     <section class="section" id="modules">
       <div class="container">
-        <header class="section__head" data-reveal>
+        <header class="section__head">
           <p class="eyebrow">// curriculum</p>
           <h2 class="section__title">Eight modules. Foundation to production.</h2>
           <p class="section__lede">A deliberate path from how AI workloads behave to how you scale, secure, and cost-optimise them under real constraints.</p>
         </header>
-
-        <div class="modules" data-reveal>
+        <div class="modules">
           <details class="module" name="modules" open>
             <summary>
               <span class="module__no">01</span>
@@ -292,8 +279,7 @@
             <div class="module__body">Scaling across on-prem and cloud, meeting GDPR/HIPAA constraints, and driving down the cost of every GPU hour with a real FinOps model.</div>
           </details>
         </div>
-
-        <p class="stack" data-reveal aria-label="Stack covered">
+        <p class="stack" aria-label="Stack covered">
           <span class="stack__label">Stack covered</span>
           <span class="stack__tags">
             <i>H100 / H200 / B200</i><i>NVLink</i><i>InfiniBand</i><i>RoCEv2</i><i>Kubernetes</i><i>GPU Operator</i><i>MIG</i><i>Run:AI</i><i>SLURM</i><i>NVMe-oF</i><i>GPUDirect</i><i>Weka · VAST · NetApp</i><i>DCGM</i><i>Grafana</i>
@@ -302,16 +288,15 @@
       </div>
     </section>
 
-    <!-- ───────────────────── PRICING ───────────────────── -->
+    <!-- PRICING -->
     <section class="section section--alt" id="pricing">
       <div class="container">
-        <header class="section__head section__head--center" data-reveal>
+        <header class="section__head section__head--center">
           <p class="eyebrow">// enrollment</p>
           <h2 class="section__title">One price. Everything included.</h2>
           <p class="section__lede">Reference material, AI-assisted learning platform, quiz assessments, certification, and the design deliverable — all in.</p>
         </header>
-
-        <div class="price" data-reveal>
+        <div class="price">
           <div class="price__badge">LIMITED OFFER</div>
           <div class="price__amount price__amount--free">
             <span class="price__strike">$420</span>
@@ -333,15 +318,15 @@
       </div>
     </section>
 
-    <!-- ───────────────────── FAQ ───────────────────── -->
+    <!-- FAQ -->
     <section class="section" id="faq">
       <div class="container faq__layout">
-        <header class="section__head" data-reveal>
+        <header class="section__head">
           <p class="eyebrow">// faq</p>
           <h2 class="section__title">Straight answers.</h2>
           <p class="section__lede">Built for engineers who'd rather read the spec than the brochure.</p>
         </header>
-        <div class="faq" data-reveal>
+        <div class="faq">
           <details class="qa" name="faq" open>
             <summary>Who is this for?<span class="module__chev" aria-hidden="true"></span></summary>
             <div class="qa__body">SREs, Platform Engineers, Architects, and Data Center Engineers responsible for standing up or operating GPU infrastructure.</div>
@@ -363,7 +348,7 @@
     </section>
   </main>
 
-  <!-- ───────────────────────── FOOTER ───────────────────────── -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
