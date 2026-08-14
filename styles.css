@@ -1891,22 +1891,32 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
 }
 
 /* =============================================================
-   NVIDIA BRANDING & TRUST BADGES (TRANSPARENT SVG INTEGRATION)
+   ORIGINAL NVIDIA BRANDING & TRUST BADGES
    ============================================================= */
 
-/* Hero inline NVIDIA logo — scales dynamically with headline font size */
-.hero__nvidia-brand-logo {
-  display: inline-block;
-  height: 0.82em;
-  width: auto;
-  vertical-align: -0.06em;
-  margin-inline: 0.18em 0.12em;
-  filter: drop-shadow(0 0 16px rgba(118, 185, 0, 0.45));
-  transition: transform 0.2s var(--ease), filter 0.2s var(--ease);
+/* Hero inline original NVIDIA badge — scaled to match the headline line-height */
+.hero__nvidia-brand-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  background: #FFFFFF;
+  padding: 4px 14px;
+  border-radius: var(--r-md);
+  margin-inline: 4px;
+  box-shadow: 0 4px 24px rgba(118, 185, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
-.hero__nvidia-brand-logo:hover {
-  transform: scale(1.04);
-  filter: drop-shadow(0 0 24px rgba(118, 185, 0, 0.65));
+.hero__nvidia-brand-wrap:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 30px rgba(118, 185, 0, 0.5);
+}
+.hero__nvidia-orig-logo {
+  height: clamp(26px, 3.8vw, 42px);
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* Hero eyebrow NVIDIA badge */
@@ -1914,28 +1924,27 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 4px 12px;
+  background: #FFFFFF;
+  padding: 3px 11px;
   border-radius: var(--r-pill);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 .nvidia-logo-badge {
-  height: 15px;
+  height: 14px;
   width: auto;
   display: block;
 }
 .nvidia-eyebrow-badge .badge-pipe {
   width: 1px;
   height: 12px;
-  background: rgba(255, 255, 255, 0.2);
+  background: #CBD5E1;
 }
 .nvidia-eyebrow-badge span:last-child {
   font-family: var(--font-mono);
-  font-size: .7rem;
+  font-size: .68rem;
   font-weight: 700;
   letter-spacing: .08em;
-  color: var(--text-strong);
+  color: #0F172A;
   text-transform: uppercase;
 }
 
@@ -1943,13 +1952,20 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
 .hpanel__brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+}
+.hpanel__orig-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 3px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 .hpanel__logo {
-  height: 18px;
+  height: 15px;
   width: auto;
   display: block;
-  filter: drop-shadow(0 0 8px rgba(118, 185, 0, 0.3));
 }
 
 /* Aurilearn AI Pill Logo */
@@ -1958,11 +1974,17 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
   align-items: center;
   gap: 10px;
 }
+.auri-orig-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
 .auri-pill-logo {
-  height: 16px;
+  height: 13px;
   width: auto;
   display: block;
-  filter: drop-shadow(0 0 6px rgba(118, 185, 0, 0.3));
 }
 
 /* Aurilearn Chat header badge */
@@ -1970,12 +1992,13 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(37, 99, 235, 0.16) !important;
-  border: 1px solid rgba(37, 99, 235, 0.4) !important;
-  padding: 3px 10px !important;
+  background: #FFFFFF !important;
+  border: none !important;
+  padding: 3px 9px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 .chat-nvidia-logo {
-  height: 13px;
+  height: 12px;
   width: auto;
   display: block;
 }
@@ -1983,8 +2006,8 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
   font-family: var(--font-mono);
   font-size: .65rem;
   font-weight: 700;
-  color: var(--accent-text);
-  letter-spacing: .06em;
+  color: #0F172A;
+  letter-spacing: .04em;
   text-transform: uppercase;
 }
 
@@ -1997,15 +2020,23 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
   margin-top: var(--s-4);
   flex-wrap: wrap;
 }
+.price-orig-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
 .price-nvidia-logo {
-  height: 18px;
+  height: 15px;
   width: auto;
   display: block;
-  filter: drop-shadow(0 0 8px rgba(118, 185, 0, 0.35));
 }
 .price__trust-wrap .price__trust {
   margin: 0;
   font-size: .8125rem;
   color: var(--text-muted);
 }
+
 
