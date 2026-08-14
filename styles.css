@@ -1763,16 +1763,28 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
   .hero__eyebrow-wrap { justify-content: center; }
   .hero__br { display: none; }
   .hero__title {
-    font-size: clamp(1.85rem, 6.8vw, 2.45rem);
-    line-height: 1.12;
-    margin-bottom: var(--s-3);
-    letter-spacing: -.028em;
+    font-size: clamp(2.35rem, 8.2vw, 3.1rem);
+    line-height: 1.08;
+    font-weight: 850;
+    margin-bottom: var(--s-4);
+    letter-spacing: -.035em;
+  }
+  .hero__title-line {
+    display: block;
+  }
+  .hero__title .accent {
+    background: linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    margin-top: 4px;
   }
   .hero__lede {
-    font-size: .9375rem;
-    line-height: 1.6;
-    color: var(--text-muted);
+    font-size: .875rem;
+    line-height: 1.62;
+    color: #94A3B8;
     margin-inline: auto;
+    max-width: 480px;
   }
 
   /* Actions: stack + full-width */
@@ -1812,6 +1824,7 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
     margin-top: var(--s-4);
   }
 }
+
 
 
 
