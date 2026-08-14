@@ -97,106 +97,6 @@
     if (el) el.textContent = String(new Date().getFullYear());
   }
 
-  /* ---------------------------------------------------------------
-     GPU CHIP MOTION GRAPHIC
-     Builds SM core grid, runs random activation loop, draws
-     SVG data-flow paths with animateMotion particles.
-     --------------------------------------------------------------- */
-  function initGpuChip() {
-    const coreContainer = document.getElementById("gpu-cores");
-    if (!coreContainer) return;
-
-    /* Build 8 × 10 SM core grid */
-    const COLS = 8, ROWS = 10;
-    const cores = [];
-    for (let i = 0; i < COLS * ROWS; i++) {
-      const el = document.createElement("div");
-      el.className = "gpu__core";
-      coreContainer.appendChild(el);
-      cores.push(el);
-    }
-
-    /* Random core activation — simulates compute load */
-    const active = new Map(); // idx → "active" | "hot"
-
-    function tick() {
-      // Cool down some cores
-      active.forEach(function (level, idx) {
-        if (Math.random() < 0.3) {
-          if (level === "hot") {
-            cores[idx].classList.remove("hot");
-            cores[idx].classList.add("active");
-            active.set(idx, "active");
-          } else {
-            cores[idx].classList.remove("active", "hot");
-            active.delete(idx);
-          }
-        }
-      });
-
-      // Activate new cores
-      var n = Math.floor(Math.random() * 12) + 6;
-      for (var i = 0; i < n; i++) {
-        var idx = Math.floor(Math.random() * cores.length);
-        if (!active.has(idx)) {
-          var level = Math.random() < 0.22 ? "hot" : "active";
-          cores[idx].classList.add(level);
-          active.set(idx, level);
-        }
-      }
-      setTimeout(tick, 90 + Math.random() * 90);
-    }
-    tick();
-
-    /* SVG data flow paths — HBM ↔ die edges */
-    var svg = document.getElementById("gpu-svg");
-    if (!svg) return;
-
-    // Paths are defined in the SVG coordinate space (viewBox 0 0 360 420).
-    // HBM-L occupies x≈10–52, die x≈108–252, HBM-R x≈308–350.
-    // Vertical range of memory buses: y 80..320.
-    var pathDefs = [
-      { d: "M 52 90  L 108 90",  cls: "",    dur: 1.1, begin: 0    },
-      { d: "M 52 200 L 108 200", cls: "",    dur: 1.3, begin: 0.6  },
-      { d: "M 52 310 L 108 310", cls: "",    dur: 1.0, begin: 1.2  },
-      { d: "M 308 110 L 252 110",cls: "--r", dur: 1.2, begin: 0.3  },
-      { d: "M 308 220 L 252 220",cls: "--r", dur: 1.4, begin: 0.9  },
-      { d: "M 308 330 L 252 330",cls: "--r", dur: 1.0, begin: 1.5  },
-    ];
-
-    var NS    = "http://www.w3.org/2000/svg";
-    var XLNS  = "http://www.w3.org/1999/xlink";
-
-    pathDefs.forEach(function (def, i) {
-      var pathId = "gp" + i;
-
-      /* Dashed path line */
-      var path = document.createElementNS(NS, "path");
-      path.setAttribute("id", pathId);
-      path.setAttribute("d", def.d);
-      path.setAttribute("class", "gpu__path" + (def.cls ? " gpu__path" + def.cls : ""));
-      svg.appendChild(path);
-
-      /* Travelling particle */
-      var circle = document.createElementNS(NS, "circle");
-      circle.setAttribute("r", "2");
-      circle.setAttribute("class", "gpu__particle");
-
-      var motion = document.createElementNS(NS, "animateMotion");
-      motion.setAttribute("dur", def.dur + "s");
-      motion.setAttribute("repeatCount", "indefinite");
-      motion.setAttribute("begin", def.begin + "s");
-
-      var mpath = document.createElementNS(NS, "mpath");
-      mpath.setAttribute("href", "#" + pathId);
-      mpath.setAttributeNS(XLNS, "xlink:href", "#" + pathId);
-
-      motion.appendChild(mpath);
-      circle.appendChild(motion);
-      svg.appendChild(circle);
-    });
-  }
-
 
      COUNT-UP ANIMATION — runs once when specrow scrolls into view.
      Easing: ease-out cubic. Each stat card staggers by 80ms.
@@ -266,7 +166,9 @@
     onScroll(); // run once on load
   }
 
-  function init() { wireCtas(); initYear(); initGpuChip(); initCountUp(); }
+  function init() { wireCtas(); initYear(); }
+
+
 
 
 
