@@ -258,13 +258,55 @@
             </div>
             <h3 class="doc__title">Multi-Region GPU Cluster — Reference Design</h3>
             <div class="doc__lines"><i style="width:92%"></i><i style="width:78%"></i><i style="width:85%"></i></div>
-            <div class="doc__diagram" aria-hidden="true">
-              <div class="node node--a">DGX</div>
-              <div class="node node--b">Spine</div>
-              <div class="node node--c">Storage</div>
-              <svg class="doc__wires" viewBox="0 0 300 90" preserveAspectRatio="none">
-                <path d="M52 22 L150 22 M150 22 L248 22 M150 22 L150 70 M150 70 L60 70 M150 70 L240 70" />
-                <circle cx="60" cy="70" r="2.5"/><circle cx="240" cy="70" r="2.5"/>
+            <div class="doc__topo" aria-hidden="true">
+              <svg class="topo" viewBox="0 0 360 148" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+                <!-- DGX H100 nodes -->
+                <g class="topo__node topo__node--compute">
+                  <rect x="4" y="6" width="80" height="30" rx="5"/>
+                  <text x="44" y="25" class="topo__label">DGX H100</text>
+                </g>
+                <g class="topo__node topo__node--compute">
+                  <rect x="4" y="56" width="80" height="30" rx="5"/>
+                  <text x="44" y="75" class="topo__label">DGX H100</text>
+                </g>
+                <g class="topo__node topo__node--compute">
+                  <rect x="4" y="106" width="80" height="30" rx="5"/>
+                  <text x="44" y="125" class="topo__label">DGX H100</text>
+                </g>
+
+                <!-- NVLink vertical connectors between DGX nodes -->
+                <line class="topo__wire topo__wire--nvlink" x1="44" y1="36" x2="44" y2="56"/>
+                <line class="topo__wire topo__wire--nvlink" x1="44" y1="86" x2="44" y2="106"/>
+                <text x="48" y="49" class="topo__tag">NVLink</text>
+                <text x="48" y="99" class="topo__tag">NVLink</text>
+
+                <!-- DGX → Spine fabric paths -->
+                <polyline class="topo__wire" points="84,21 120,21 120,58 148,58"/>
+                <polyline class="topo__wire" points="84,71 148,71"/>
+                <polyline class="topo__wire" points="84,121 120,121 120,84 148,84"/>
+
+                <!-- Spine / Leaf Switch -->
+                <g class="topo__node topo__node--switch">
+                  <rect x="148" y="36" width="80" height="70" rx="6"/>
+                  <text x="188" y="66" class="topo__label topo__label--switch">Spine</text>
+                  <text x="188" y="83" class="topo__sublabel">InfiniBand</text>
+                  <text x="188" y="97" class="topo__sublabel">/ RoCEv2</text>
+                </g>
+
+                <!-- Spine → Storage path -->
+                <polyline class="topo__wire topo__wire--storage" points="228,71 276,71"/>
+
+                <!-- Storage node -->
+                <g class="topo__node topo__node--storage">
+                  <rect x="276" y="50" width="80" height="42" rx="5"/>
+                  <text x="316" y="69" class="topo__label">NVMe-oF</text>
+                  <text x="316" y="84" class="topo__sublabel">Storage</text>
+                </g>
+
+                <!-- Fabric label at bottom -->
+                <text x="148" y="138" class="topo__fab">RoCEv2 · PFC/ECN · GPUDirect</text>
+
               </svg>
             </div>
             <div class="doc__row"><span>Fabric</span><span class="mono">RoCEv2 · PFC/ECN</span></div>

@@ -1264,6 +1264,87 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
 .doc__row { display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--divider); font-size: .85rem; color: var(--text-muted); }
 .doc__row .mono { color: var(--accent-text); font-size: .8rem; }
 
+/* Network topology diagram */
+.doc__topo {
+  margin-bottom: var(--s-5);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.06);
+  padding: var(--s-3);
+}
+.topo { width: 100%; display: block; }
+
+/* Node groups */
+.topo__node--compute rect {
+  fill: rgba(37,99,235,.12);
+  stroke: rgba(37,99,235,.5);
+  stroke-width: 1;
+}
+.topo__node--switch rect {
+  fill: rgba(37,99,235,.18);
+  stroke: rgba(37,99,235,.7);
+  stroke-width: 1.2;
+}
+.topo__node--storage rect {
+  fill: rgba(52,211,153,.08);
+  stroke: rgba(52,211,153,.4);
+  stroke-width: 1;
+}
+
+/* Text labels */
+.topo__label {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  fill: #F5F6F8;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-weight: 600;
+}
+.topo__label--switch {
+  font-size: 9px;
+  fill: #7CB0FF;
+}
+.topo__sublabel {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  fill: #6B7385;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+.topo__tag {
+  font-family: var(--font-mono);
+  font-size: 6.5px;
+  fill: #4ADE80;
+  dominant-baseline: middle;
+  letter-spacing: .02em;
+}
+.topo__fab {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  fill: #4B5268;
+  letter-spacing: .05em;
+}
+
+/* Wires */
+.topo__wire {
+  stroke: rgba(37,99,235,.5);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.topo__wire--nvlink {
+  stroke: rgba(74,222,128,.55);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 2;
+}
+.topo__wire--storage {
+  stroke: rgba(52,211,153,.5);
+  stroke-width: 1.2;
+}
+
+
 .build__takeaways { display: grid; gap: var(--s-4); }
 .card {
   background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--r-lg);
