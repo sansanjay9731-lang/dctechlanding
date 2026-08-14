@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Recommended Reading — GPU-Accelerated AI Infrastructure | DC Tech</title>
-  <meta name="description" content="A focused, vendor-neutral reading list for the GPU-Accelerated AI Infrastructure practitioner program — Hopper internals, RDMA fabrics, GPU Operator, MIG, GPUDirect storage, DCGM and FinOps." />
+  <title>Recommended Reading: GPU-Accelerated AI Infrastructure | DC Tech</title>
+  <meta name="description" content="A focused, vendor-neutral reading list for the GPU-Accelerated AI Infrastructure practitioner program: Hopper internals, RDMA fabrics, GPU Operator, MIG, GPUDirect storage, DCGM and FinOps." />
   <meta name="theme-color" content="#0A0C12" />
   <meta name="robots" content="noindex" />
 
@@ -20,7 +20,7 @@
 
   <header class="nav">
     <div class="container nav__inner">
-      <a class="brand" href="index.html" aria-label="DC Tech — home">
+      <a class="brand" href="index.html" aria-label="DC Tech home">
         <span class="brand__chip"><img src="assets/dctech-logo.png" alt="DC Tech" width="34" height="34" /></span>
         <span class="brand__word">DC&nbsp;Tech</span>
       </a>
@@ -50,13 +50,13 @@
           <a class="rl-card rl-card--feat" href="https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/" target="_blank" rel="noopener">
             <span class="rl-src">NVIDIA Technical Blog</span>
             <span class="rl-name">NVIDIA Hopper Architecture In-Depth</span>
-            <span class="rl-why">The single best grounding in modern GPU-platform internals — SMs, Transformer Engine/FP8, NVLink, MIG. Mirrors the official H100 whitepaper.</span>
+            <span class="rl-why">The single best grounding in modern GPU platform internals: SMs, Transformer Engine/FP8, NVLink, and MIG. Mirrors the official H100 whitepaper.</span>
             <span class="rl-go">Read →</span>
           </a>
           <a class="rl-card rl-card--feat" href="https://developer.nvidia.com/blog/mastering-llm-techniques-inference-optimization/" target="_blank" rel="noopener">
             <span class="rl-src">NVIDIA Technical Blog</span>
             <span class="rl-name">Mastering LLM Techniques: Inference Optimization</span>
-            <span class="rl-why">The mental model — prefill/decode, KV-cache math, batching, parallelism — that ties sizing, fabrics, storage and sharing back to real workload behavior.</span>
+            <span class="rl-why">The mental model for prefill/decode, KV-cache math, batching, and parallelism that ties sizing, fabrics, storage, and sharing back to workload behavior.</span>
             <span class="rl-go">Read →</span>
           </a>
         </div>
@@ -71,15 +71,15 @@
           <h2><span class="rl-no">01</span> Workload lifecycle &amp; sizing / TCO</h2>
           <ul>
             <li><a href="https://developer.nvidia.com/blog/llm-inference-benchmarking-how-much-does-your-llm-inference-cost/" target="_blank" rel="noopener"><b>LLM Inference Benchmarking: How Much Does Your Inference Cost?</b><i>NVIDIA Technical Blog</i></a><p>Turn latency/throughput curves into a cost-per-token TCO model with GenAI-Perf.</p></li>
-            <li><a href="https://blogs.nvidia.com/blog/lowest-token-cost-ai-factories/" target="_blank" rel="noopener"><b>Rethinking AI TCO: Why Cost per Token Is the Only Metric</b><i>NVIDIA Blog</i></a><p>The right TCO unit for inference fleets — the frame to anchor sizing to.</p></li>
-            <li><a href="https://arxiv.org/abs/1910.02054" target="_blank" rel="noopener"><b>ZeRO: Memory Optimizations Toward Trillion-Parameter Models</b><i>Rajbhandari et al. — arXiv</i></a><p>Canonical primary source for training memory math (params + grads + optimizer + activations).</p></li>
+            <li><a href="https://blogs.nvidia.com/blog/lowest-token-cost-ai-factories/" target="_blank" rel="noopener"><b>Rethinking AI TCO: Why Cost per Token Is the Only Metric</b><i>NVIDIA Blog</i></a><p>The right TCO unit for inference fleets, and the framework to anchor sizing to.</p></li>
+            <li><a href="https://arxiv.org/abs/1910.02054" target="_blank" rel="noopener"><b>ZeRO: Memory Optimizations Toward Trillion-Parameter Models</b><i>Rajbhandari et al. (arXiv)</i></a><p>Canonical primary source for training memory math (params + grads + optimizer + activations).</p></li>
           </ul>
         </article>
 
         <article class="rl-theme" data-reveal>
           <h2><span class="rl-no">02</span> GPU platform architecture (H100, NVLink/NVSwitch)</h2>
           <ul>
-            <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noopener"><b>NVIDIA H100 Tensor Core GPU — product &amp; datasheet</b><i>NVIDIA</i></a><p>SXM vs NVL specs (memory, bandwidth, TDP, NVLink config) — the numbers for sizing.</p></li>
+            <li><a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noopener"><b>NVIDIA H100 Tensor Core GPU: Product &amp; Datasheet</b><i>NVIDIA</i></a><p>SXM vs NVL specs (memory, bandwidth, TDP, NVLink config), providing the numbers for sizing.</p></li>
             <li><a href="https://www.nvidia.com/en-us/data-center/nvlink/" target="_blank" rel="noopener"><b>NVLink &amp; NVLink Switch</b><i>NVIDIA</i></a><p>Official scale-up fabric reference: per-GPU bandwidth and NVSwitch all-to-all topology.</p></li>
             <li><a href="https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html" target="_blank" rel="noopener"><b>Introduction to NVIDIA DGX H100/H200 Systems</b><i>NVIDIA Docs</i></a><p>System-level reference for the 8×H100 / 640 GB node and SuperPOD building block.</p></li>
           </ul>
@@ -89,7 +89,7 @@
           <h2><span class="rl-no">03</span> Bare-metal &amp; Kubernetes GPU orchestration</h2>
           <ul>
             <li><a href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html" target="_blank" rel="noopener"><b>About the NVIDIA GPU Operator</b><i>NVIDIA Cloud Native Docs</i></a><p>The operator automating driver, device-plugin, toolkit, GFD and DCGM on Kubernetes.</p></li>
-            <li><a href="https://github.com/NVIDIA/k8s-device-plugin" target="_blank" rel="noopener"><b>NVIDIA/k8s-device-plugin</b><i>NVIDIA — GitHub</i></a><p>The official DaemonSet advertising GPUs to the kubelet; the layer beneath the operator.</p></li>
+            <li><a href="https://github.com/NVIDIA/k8s-device-plugin" target="_blank" rel="noopener"><b>NVIDIA/k8s-device-plugin</b><i>NVIDIA (GitHub)</i></a><p>The official DaemonSet advertising GPUs to the kubelet; the layer beneath the operator.</p></li>
             <li><a href="https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/" target="_blank" rel="noopener"><b>Control Topology Management Policies on a Node</b><i>Kubernetes.io</i></a><p>NUMA-aware alignment (single-numa-node) so GPUs and CPUs land on one NUMA node.</p></li>
           </ul>
         </article>
@@ -97,8 +97,8 @@
         <article class="rl-theme" data-reveal>
           <h2><span class="rl-no">04</span> High-performance fabrics (InfiniBand / RoCEv2)</h2>
           <ul>
-            <li><a href="https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-59/Layer-1-and-Switch-Ports/Quality-of-Service/RDMA-over-Converged-Ethernet-RoCE/" target="_blank" rel="noopener"><b>RDMA over Converged Ethernet (RoCE) — Cumulus Linux</b><i>NVIDIA Networking Docs</i></a><p>Concrete PFC + ECN lossless RoCE config — the "how to build a lossless fabric" doc.</p></li>
-            <li><a href="https://www.rfc-editor.org/rfc/rfc3168.html" target="_blank" rel="noopener"><b>RFC 3168 — Addition of ECN to IP</b><i>IETF</i></a><p>Foundational ECN spec underpinning the congestion signaling RoCEv2/DCQCN rely on.</p></li>
+            <li><a href="https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-59/Layer-1-and-Switch-Ports/Quality-of-Service/RDMA-over-Converged-Ethernet-RoCE/" target="_blank" rel="noopener"><b>RDMA over Converged Ethernet (RoCE): Cumulus Linux</b><i>NVIDIA Networking Docs</i></a><p>Concrete PFC + ECN lossless RoCE configuration guide.</p></li>
+            <li><a href="https://www.rfc-editor.org/rfc/rfc3168.html" target="_blank" rel="noopener"><b>RFC 3168: Addition of ECN to IP</b><i>IETF</i></a><p>Foundational ECN spec underpinning the congestion signaling RoCEv2/DCQCN rely on.</p></li>
             <li><a href="https://www.nvidia.com/en-us/networking/spectrumx/" target="_blank" rel="noopener"><b>NVIDIA Spectrum-X Ethernet Platform</b><i>NVIDIA</i></a><p>AI-tuned Ethernet (adaptive routing, congestion control) as the RoCE alternative to InfiniBand.</p></li>
             <li><a href="https://ultraethernet.org/uec-progresses-towards-v1-0-set-of-specifications/" target="_blank" rel="noopener"><b>UEC Progresses Toward v1.0 Specifications</b><i>Ultra Ethernet Consortium</i></a><p>The emerging open standard (packet spraying, flexible ordering) challenging InfiniBand for AI RDMA.</p></li>
           </ul>
@@ -107,7 +107,7 @@
         <article class="rl-theme" data-reveal>
           <h2><span class="rl-no">05</span> GPU sharing &amp; multi-tenancy</h2>
           <ul>
-            <li><a href="https://docs.nvidia.com/datacenter/tesla/mig-user-guide/latest/index.html" target="_blank" rel="noopener"><b>Multi-Instance GPU (MIG) User Guide</b><i>NVIDIA Docs</i></a><p>Hard-partitioning a GPU into up to 7 isolated instances — the basis of secure multi-tenancy.</p></li>
+            <li><a href="https://docs.nvidia.com/datacenter/tesla/mig-user-guide/latest/index.html" target="_blank" rel="noopener"><b>Multi-Instance GPU (MIG) User Guide</b><i>NVIDIA Docs</i></a><p>Hard-partitioning a GPU into up to 7 isolated instances, serving as the basis of secure multi-tenancy.</p></li>
             <li><a href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/gpu-sharing.html" target="_blank" rel="noopener"><b>Time-Slicing GPUs in Kubernetes</b><i>NVIDIA Cloud Native Docs</i></a><p>Oversubscription via the device plugin; time-slicing (no isolation) vs MIG.</p></li>
             <li><a href="https://slurm.schedmd.com/gres.html" target="_blank" rel="noopener"><b>Slurm Generic Resource (GRES) Scheduling</b><i>SchedMD</i></a><p>HPC GPU scheduling: <span class="mono">--gpus</span> syntax, device isolation, MPS/MIG-aware allocation.</p></li>
             <li><a href="https://run-ai-docs.nvidia.com/" target="_blank" rel="noopener"><b>NVIDIA Run:ai Documentation</b><i>NVIDIA</i></a><p>Fractional GPUs, fair-share scheduling and pooled multi-tenant allocation.</p></li>
@@ -117,9 +117,9 @@
         <article class="rl-theme" data-reveal>
           <h2><span class="rl-no">06</span> Storage for AI</h2>
           <ul>
-            <li><a href="https://docs.nvidia.com/gpudirect-storage/overview-guide/index.html" target="_blank" rel="noopener"><b>GPUDirect Storage — Overview Guide</b><i>NVIDIA Magnum IO Docs</i></a><p>Direct DMA between storage and GPU memory via cuFile — removing the CPU bounce buffer.</p></li>
+            <li><a href="https://docs.nvidia.com/gpudirect-storage/overview-guide/index.html" target="_blank" rel="noopener"><b>GPUDirect Storage: Overview Guide</b><i>NVIDIA Magnum IO Docs</i></a><p>Direct DMA between storage and GPU memory via cuFile, removing the CPU bounce buffer.</p></li>
             <li><a href="https://www.weka.io/resources/white-paper/wekaio-architectural-whitepaper/" target="_blank" rel="noopener"><b>WEKA / NeuralMesh Architecture Whitepaper</b><i>WEKA</i></a><p>An NVMe parallel filesystem built for metadata-heavy, high-concurrency AI I/O.</p></li>
-            <li><a href="https://www.vastdata.com/platform/how-it-works" target="_blank" rel="noopener"><b>VAST Data — How It Works (DASE)</b><i>VAST Data</i></a><p>Disaggregated Shared-Everything design decoupling performance from capacity at exabyte scale.</p></li>
+            <li><a href="https://www.vastdata.com/platform/how-it-works" target="_blank" rel="noopener"><b>VAST Data: How It Works (DASE)</b><i>VAST Data</i></a><p>Disaggregated Shared-Everything design decoupling performance from capacity at exabyte scale.</p></li>
             <li><a href="https://nvmexpress.org/specification/nvme-of-specification/" target="_blank" rel="noopener"><b>NVMe over Fabrics (NVMe-oF) Specification</b><i>NVM Express</i> <span class="rl-flag" title="Bot-blocked to automated checks; live in a normal browser">browser</span></a><p>Standards-body source for the fabric protocol underpinning disaggregated AI storage.</p></li>
           </ul>
         </article>
@@ -138,9 +138,9 @@
           <h2><span class="rl-no">08</span> Hybrid scaling, FinOps &amp; compliance</h2>
           <ul>
             <li><a href="https://www.finops.org/framework/" target="_blank" rel="noopener"><b>FinOps Framework Overview</b><i>FinOps Foundation</i></a><p>The canonical Principles/Domains/Capabilities operating model for GPU cost accountability.</p></li>
-            <li><a href="https://www.finops.org/wg/finops-for-ai-overview/" target="_blank" rel="noopener"><b>FinOps for AI — Overview</b><i>FinOps Foundation</i></a><p>GPU-specific cost drivers (scarcity, token pricing, buy-vs-rent) with a Crawl/Walk/Run model.</p></li>
-            <li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng" target="_blank" rel="noopener"><b>GDPR — Regulation (EU) 2016/679, Official Text</b><i>EUR-Lex</i></a><p>Authoritative primary text driving data-residency, encryption and access-control decisions.</p></li>
-            <li><a href="https://www.law.cornell.edu/cfr/text/45/part-164/subpart-C" target="_blank" rel="noopener"><b>HIPAA Security Rule — 45 CFR 164 Subpart C</b><i>Cornell Law (LII)</i></a><p>The actual regulatory text of the safeguards for ePHI — the infra-relevant core of HIPAA.</p></li>
+            <li><a href="https://www.finops.org/wg/finops-for-ai-overview/" target="_blank" rel="noopener"><b>FinOps for AI: Overview</b><i>FinOps Foundation</i></a><p>GPU-specific cost drivers (scarcity, token pricing, buy-vs-rent) with a Crawl/Walk/Run model.</p></li>
+            <li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng" target="_blank" rel="noopener"><b>GDPR: Regulation (EU) 2016/679, Official Text</b><i>EUR-Lex</i></a><p>Authoritative primary text driving data-residency, encryption and access-control decisions.</p></li>
+            <li><a href="https://www.law.cornell.edu/cfr/text/45/part-164/subpart-C" target="_blank" rel="noopener"><b>HIPAA Security Rule: 45 CFR 164 Subpart C</b><i>Cornell Law (LII)</i></a><p>The actual regulatory text of the safeguards for ePHI, covering the infra-relevant core of HIPAA.</p></li>
           </ul>
         </article>
 
