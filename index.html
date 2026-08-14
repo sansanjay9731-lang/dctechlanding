@@ -51,7 +51,10 @@
       <div class="container hero__inner">
         <div class="hero__copy">
           <div class="hero__eyebrow-wrap hero-in" style="--d:0s">
-            <span class="eyebrow-pill">Curriculum · DC Tech × AuriLearn · 8 Modules</span>
+            <span class="eyebrow-pill">
+              <span class="eyebrow-pill__logo"><img src="assets/aurilearn-logo.png" alt="AuriLearn" /></span>
+              Curriculum · DC Tech × AuriLearn · 8 Modules
+            </span>
           </div>
           <h1 class="hero__title hero-in" style="--d:.1s">
             Master GPU infrastructure.<br class="hero__br"/>
@@ -163,7 +166,7 @@
 
             <div class="auri-hero__left">
               <div class="auri-pill">
-                <span>✦</span>
+                <span class="auri-pill__logo-wrap"><img src="assets/aurilearn-logo.png" alt="AuriLearn" /></span>
                 <span>AURILEARN AI TUTOR</span>
               </div>
               <h3 class="auri-hero__title">Ask anything about GPU infrastructure. Get the right answer immediately.</h3>
@@ -192,6 +195,7 @@
               <div class="chat-card">
                 <div class="chat-card__header">
                   <span class="chat-online"></span>
+                  <span class="chat-card__avatar"><img src="assets/aurilearn-logo.png" alt="AuriLearn" /></span>
                   <span class="chat-card__name">AuriLearn AI Tutor</span>
                   <span class="chat-card__badge">GPU Course</span>
                 </div>
@@ -200,14 +204,20 @@
                     When should I choose RoCEv2 over InfiniBand for a DGX H100 cluster?
                   </div>
                   <div class="chat-msg chat-msg--ai">
-                    <span class="chat-msg__from">AuriLearn</span>
+                    <span class="chat-msg__from">
+                      <span class="chat-msg__avatar"><img src="assets/aurilearn-logo.png" alt="AuriLearn" /></span>
+                      AuriLearn
+                    </span>
                     It depends on scale and existing infrastructure. InfiniBand is the safe choice for large-scale all-to-all training (&gt;16 nodes). Lower latency, simpler to tune. RoCEv2 works well when you already have an Ethernet fabric and can correctly configure PFC/ECN. For a DGX H100 pod under 8 nodes, a well-tuned lossless Ethernet fabric is a legitimate and often cheaper choice. Full decision matrix in Module 4.
                   </div>
                   <div class="chat-msg chat-msg--user">
                     What MIG profile works best for multi-tenant inference?
                   </div>
                   <div class="chat-msg chat-msg--ai chat-msg--typing">
-                    <span class="chat-msg__from">AuriLearn</span>
+                    <span class="chat-msg__from">
+                      <span class="chat-msg__avatar"><img src="assets/aurilearn-logo.png" alt="AuriLearn" /></span>
+                      AuriLearn
+                    </span>
                     <span class="chat-typing"><span></span><span></span><span></span></span>
                   </div>
                 </div>
@@ -445,7 +455,10 @@
           </ul>
           <a class="btn btn--primary btn--lg btn--block js-cta-enroll" href="#pricing" data-cta="pricing">Enroll Now - $5</a>
           <p class="price__terms">Founding price applies to your first enrollment. By enrolling you agree to our <a href="terms.html">Terms &amp; Conditions</a> and <a href="terms.html#refunds">Refund Policy</a>.</p>
-          <p class="price__trust">DC Tech × AuriLearn · AI-Powered Infrastructure Training</p>
+          <div class="price__trust-wrap">
+            <span class="price-auri-wrap"><img src="assets/aurilearn-logo.png" alt="AuriLearn" /></span>
+            <p class="price__trust">DC Tech × AuriLearn · AI-Powered Infrastructure Training</p>
+          </div>
         </div>
       </div>
     </section>
@@ -494,10 +507,13 @@
     <div class="container footer__grid">
       <!-- Brand & Tagline -->
       <div class="footer__brand-col">
-        <a class="brand" href="#top" aria-label="DC Tech home">
-          <span class="brand__chip brand__chip--sm"><img src="assets/dctech-logo.png" alt="DC Tech" width="28" height="28" /></span>
-          <span class="brand__word">DC&nbsp;Tech</span>
-        </a>
+        <div class="footer__brand-lockup">
+          <a class="brand" href="#top" aria-label="DC Tech home">
+            <span class="brand__chip brand__chip--sm"><img src="assets/dctech-logo.png" alt="DC Tech" width="26" height="26" /></span>
+          </a>
+          <span class="brand-x">×</span>
+          <span class="brand__chip brand__chip--sm brand__chip--auri"><img src="assets/aurilearn-logo.png" alt="AuriLearn" width="26" height="26" /></span>
+        </div>
         <p class="footer__brand-name">DC Tech × AuriLearn</p>
         <p class="footer__tag">AI-powered GPU infrastructure training for US data center engineers.</p>
       </div>

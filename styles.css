@@ -2043,153 +2043,130 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
 }
 
 /* =============================================================
-   ORIGINAL NVIDIA BRANDING & TRUST BADGES
+   AURILEARN BRANDING & BADGES
    ============================================================= */
 
-/* Hero inline original NVIDIA badge — scaled bigger to match the headline line-height */
-.hero__nvidia-brand-wrap {
+/* Eyebrow AuriLearn logo chip */
+.eyebrow-pill__logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  vertical-align: middle;
   background: #FFFFFF;
-  padding: 6px 18px;
-  border-radius: var(--r-md);
-  margin-inline: 6px;
-  box-shadow: 0 6px 28px rgba(118, 185, 0, 0.4), 0 2px 10px rgba(0, 0, 0, 0.45);
-  transform: translateY(-4px);
-  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  border-radius: 4px;
+  padding: 1px 5px;
+  height: 18px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
-.hero__nvidia-brand-wrap:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 8px 36px rgba(118, 185, 0, 0.55);
-}
-.hero__nvidia-orig-logo {
-  height: clamp(32px, 4.4vw, 50px);
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-
-/* Hero eyebrow NVIDIA badge */
-.nvidia-eyebrow-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #FFFFFF;
-  height: 30px;
-  padding: 0 12px;
-  border-radius: var(--r-pill);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-}
-.nvidia-logo-badge {
-  height: 15px;
-  width: auto;
-  display: block;
-}
-.nvidia-eyebrow-badge .badge-pipe {
-  width: 1px;
+.eyebrow-pill__logo img {
   height: 13px;
-  background: #CBD5E1;
-}
-.nvidia-eyebrow-badge span:last-child {
-  font-family: var(--font-mono);
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  color: #0F172A;
-  text-transform: uppercase;
-}
-
-/* Spec panel NVIDIA logo */
-.hpanel__brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.hpanel__orig-wrap {
-  display: inline-flex;
-  align-items: center;
-  background: #FFFFFF;
-  padding: 3px 8px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-.hpanel__logo {
-  height: 15px;
   width: auto;
   display: block;
 }
 
-/* Aurilearn AI Pill Logo */
+/* AuriLearn Section Pill */
 .auri-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
 }
-.auri-orig-wrap {
+.auri-pill__logo-wrap {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background: #FFFFFF;
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
-.auri-pill-logo {
-  height: 13px;
+.auri-pill__logo-wrap img {
+  height: 16px;
   width: auto;
   display: block;
 }
 
-/* Aurilearn Chat header badge */
-.chat-card__badge--nvidia {
+/* Chat Card Header Avatar */
+.chat-card__avatar {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  background: #FFFFFF !important;
-  border: none !important;
-  padding: 3px 9px !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  justify-content: center;
+  background: #FFFFFF;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
 }
-.chat-nvidia-logo {
+.chat-card__avatar img {
+  height: 16px;
+  width: auto;
+  display: block;
+}
+
+/* Chat Message Avatar */
+.chat-msg__from {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--accent-text);
+  margin-bottom: var(--s-1);
+}
+.chat-msg__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  padding: 1px;
+}
+.chat-msg__avatar img {
   height: 12px;
   width: auto;
   display: block;
 }
-.chat-card__badge--nvidia span {
-  font-family: var(--font-mono);
-  font-size: .65rem;
-  font-weight: 700;
-  color: #0F172A;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
 
-/* Pricing section trust wrap */
+/* Pricing Section Trust Wrap */
 .price__trust-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   margin-top: var(--s-4);
   flex-wrap: wrap;
 }
-.price-orig-wrap {
+.price-auri-wrap {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background: #FFFFFF;
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-.price-nvidia-logo {
-  height: 15px;
+.price-auri-wrap img {
+  height: 16px;
   width: auto;
   display: block;
 }
-.price__trust-wrap .price__trust {
-  margin: 0;
-  font-size: .8125rem;
-  color: var(--text-muted);
+
+/* Footer Brand Lockup */
+.footer__brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+.brand-x {
+  color: var(--text-faint);
+  font-size: .8rem;
+  font-weight: 600;
+}
+.brand__chip--auri {
+  padding: 3px 5px;
+}
+
 
 
