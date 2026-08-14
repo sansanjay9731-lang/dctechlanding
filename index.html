@@ -491,26 +491,60 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <span class="brand__chip brand__chip--sm"><img src="assets/dctech-logo.png" alt="DC Tech" width="30" height="30" /></span>
-        <div>
-          <p class="footer__name">DC Tech × AuriLearn</p>
-          <p class="footer__tag">AI-powered NVIDIA infrastructure training for US data center engineers.</p>
-          <p class="footer__disclosure">Independent training program: not affiliated with or endorsed by NVIDIA Corporation. NVIDIA, H100, H200, B200, DGX, and NVLink are trademarks of NVIDIA Corporation.</p>
+    <div class="container footer__grid">
+      <!-- Brand & Tagline -->
+      <div class="footer__brand-col">
+        <a class="brand" href="#top" aria-label="DC Tech home">
+          <span class="brand__chip brand__chip--sm"><img src="assets/dctech-logo.png" alt="DC Tech" width="28" height="28" /></span>
+          <span class="brand__word">DC&nbsp;Tech</span>
+        </a>
+        <p class="footer__brand-name">DC Tech × AuriLearn</p>
+        <p class="footer__tag">AI-powered GPU infrastructure training for US data center engineers.</p>
+      </div>
+
+      <!-- Links Grid -->
+      <div class="footer__links-wrap">
+        <div class="footer__nav-group">
+          <p class="footer__group-title">Program</p>
+          <ul class="footer__nav-list">
+            <li><a href="#why">Why This</a></li>
+            <li><a href="#aurilearn">AuriLearn AI</a></li>
+            <li><a href="#modules">Curriculum</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__nav-group">
+          <p class="footer__group-title">Legal &amp; Support</p>
+          <ul class="footer__nav-list">
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="terms.html#refunds">Refund Policy</a></li>
+            <li><a href="terms.html#contact">Contact Support</a></li>
+          </ul>
         </div>
       </div>
-      <div class="footer__cta">
-        <a class="btn btn--primary js-cta-enroll" href="#pricing" data-cta="footer">Enroll Now</a>
-        <p class="footer__links"><a href="#modules">Curriculum</a> · <a href="#aurilearn">AuriLearn AI</a> · <a href="#pricing">Pricing</a></p>
-        <p class="footer__links"><a href="terms.html">Terms &amp; Conditions</a> · <a href="terms.html#refunds">Refund Policy</a> · <a href="terms.html#contact">Contact</a></p>
+
+      <!-- Action -->
+      <div class="footer__action-col">
+        <p class="footer__group-title">Enrollment</p>
+        <a class="btn btn--primary btn--sm js-cta-enroll" href="#pricing" data-cta="footer">Enroll Now — $5</a>
+        <span class="footer__action-sub">Founding cohort access</span>
       </div>
     </div>
-    <div class="container footer__base">
-      <p>© <span id="year">2026</span> DC Tech. All rights reserved.</p>
+
+    <!-- Disclosure & Bottom Row -->
+    <div class="container footer__bottom">
+      <p class="footer__disclosure">
+        Independent training program: not affiliated with or endorsed by NVIDIA Corporation. NVIDIA, H100, H200, B200, DGX, and NVLink are trademarks of NVIDIA Corporation.
+      </p>
+      <div class="footer__base">
+        <p>© <span id="year">2026</span> DC Tech. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
   <script src="script.js" defer></script>
 </body>
 </html>
+
