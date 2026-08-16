@@ -1786,18 +1786,19 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
 
 /* --- HERO --- */
 @media (max-width: 768px) {
-  .hero { padding-block: 28px 32px; overflow-x: clip; }
+  .hero { padding-block: 28px 36px; overflow-x: clip; }
   .hero__inner { text-align: center; max-width: 100%; }
-  .hero__eyebrow-wrap { justify-content: center; }
+  .hero__eyebrow-wrap { justify-content: center; margin-bottom: var(--s-3); }
   .hero__br { display: none; }
   .hero__title {
-    font-size: clamp(1.85rem, 6.8vw, 2.45rem);
-    line-height: 1.14;
-    font-weight: 800;
-    margin-bottom: var(--s-3);
-    letter-spacing: -.025em;
+    font-size: clamp(2.45rem, 8.8vw, 3.25rem);
+    line-height: 1.05;
+    font-weight: 850;
+    margin-bottom: var(--s-4);
+    letter-spacing: -.038em;
     word-break: normal;
     overflow-wrap: break-word;
+    text-wrap: balance;
   }
   .hero__title-line {
     display: block;
@@ -1811,11 +1812,12 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
   }
   .hero__lede {
     font-size: .875rem;
-    line-height: 1.6;
+    line-height: 1.58;
     color: #94A3B8;
     margin-inline: auto;
-    max-width: 480px;
+    max-width: 360px;
     padding-inline: 4px;
+    text-wrap: pretty;
   }
 
   /* Actions: stack + full-width */
@@ -1823,9 +1825,9 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
     flex-direction: column;
     align-items: stretch;
     gap: var(--s-3);
-    margin-top: var(--s-4);
+    margin-top: var(--s-5);
     width: 100%;
-    max-width: 380px;
+    max-width: 360px;
     margin-inline: auto;
   }
   .hero__actions .btn {
@@ -1842,16 +1844,18 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
     padding: 6px 14px;
     max-width: 100%;
     box-sizing: border-box;
+    margin-top: var(--s-4);
   }
 
   .hero__note {
-    font-size: .78rem;
+    font-size: .76rem;
     line-height: 1.45;
     margin-top: var(--s-3);
     color: var(--text-faint);
     margin-inline: auto;
-    max-width: 420px;
+    max-width: 340px;
     padding-inline: 6px;
+    text-wrap: balance;
   }
 
   .hero__quick-nav {
