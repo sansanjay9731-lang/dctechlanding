@@ -13,7 +13,7 @@
      Google Form / payment link). UTMs are forwarded onto it so ad
      attribution survives the redirect.
      --------------------------------------------------------------- */
-  const CHECKOUT_URL    = "https://docs.google.com/forms/d/e/1FAIpQLSfd7ONJXJsGqjSq0Qa6lybhF2u-jgLMXNq7fMsVsd4fYwm_1Q/viewform";
+  const CHECKOUT_URL    = "https://rzp.io/rzp/aJ456hU";
   const SYLLABUS_PDF_URL = "TODO(rashmi): full syllabus PDF URL";
   const READING_LIST_URL = "reading-list.html"; // standalone recommended-reading resource
 
