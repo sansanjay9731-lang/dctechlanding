@@ -149,12 +149,25 @@ h1, h2, h3 { line-height: 1.08; letter-spacing: -.02em; font-weight: 700; color:
   border-bottom: 1px solid var(--border);
 }
 .nav__inner { display: flex; align-items: center; gap: var(--s-4); height: 64px; }
-.brand { display: inline-flex; align-items: center; gap: var(--s-3); }
-.brand__chip { display: grid; place-items: center; background: #fff; border-radius: 10px; padding: 4px; box-shadow: 0 2px 10px rgba(0, 0, 0, .4); }
-.brand__chip img { width: 34px; height: 34px; }
-.brand__chip--sm { border-radius: 9px; padding: 3px; }
-.brand__chip--sm img { width: 30px; height: 30px; }
-.brand__word { font-family: var(--font-mono); font-weight: 600; font-size: 1.05rem; letter-spacing: -.01em; color: var(--text-strong); }
+.brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+.brand__chip { display: grid; place-items: center; background: #fff; border-radius: 9px; padding: 3px; box-shadow: 0 2px 10px rgba(0, 0, 0, .4); }
+.brand__chip img { width: 28px; height: 28px; }
+.brand__chip--sm { border-radius: 8px; padding: 2px; }
+.brand__chip--sm img { width: 26px; height: 26px; }
+.brand__word { font-family: var(--font-mono); font-weight: 700; font-size: .95rem; letter-spacing: -.01em; color: var(--text-strong); }
+.brand-x { color: var(--text-faint); font-size: .8rem; font-weight: 600; margin-inline: 1px; }
+.nav-auri-wrap { display: inline-flex; align-items: center; gap: 6px; }
+.nav-auri-logo { height: 20px; width: auto; display: block; filter: drop-shadow(0 0 8px rgba(229, 192, 91, 0.5)); }
+.brand__word--auri { color: #E5C05B; }
+@media (max-width: 480px) {
+  .brand { gap: 6px; }
+  .brand__chip img { width: 24px; height: 24px; }
+  .brand__word { font-size: .85rem; }
+  .nav-auri-logo { height: 18px; }
+}
+@media (max-width: 370px) {
+  .brand__word--auri { display: none; }
+}
 .nav__links { display: none; margin-left: auto; gap: var(--s-5); }
 .nav__links a { color: var(--text-muted); font-size: .9rem; font-weight: 500; position: relative; padding-block: 4px; transition: color .16s var(--ease); }
 .nav__links a::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--accent-text); transition: width .22s var(--ease); }
