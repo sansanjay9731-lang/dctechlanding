@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GPU-Accelerated AI Infrastructure — Full 64-Topic Course Data Sheet &amp; Syllabus | DC Tech × AuriLearn</title>
+  <meta name="description" content="Full detailed 64-topic curriculum and course specification document: Designing and Operating GPU-Accelerated AI Infrastructure. DC Tech × AuriLearn." />
+  <meta name="theme-color" content="#0A0C12" />
+
+  <link rel="icon" type="image/png" href="assets/dctech-logo.png" />
+  <link rel="apple-touch-icon" href="assets/dctech-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .doc-page {
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      font-family: var(--font-sans);
+    }
+    .doc-container {
+      max-width: 900px;
+      margin-inline: auto;
+      padding: clamp(24px, 4vw, 48px) var(--s-5) 96px;
+    }
+    .doc-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .btn--print-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-strong);
+      color: var(--text-strong);
+      padding: 8px 16px;
+      border-radius: var(--r-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .btn--print-action:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-line);
+      transform: translateY(-1px);
+    }
+    .doc-sheet {
+      background: #0B0E17;
+      border: 1px solid rgba(37, 99, 235, 0.22);
+      border-radius: var(--r-xl);
+      padding: clamp(28px, 5vw, 56px);
+      box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+    }
+    .doc-sheet__badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .doc-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      color: #93C5FD;
+    }
+    .doc-pill--gold {
+      background: rgba(229, 192, 91, 0.12);
+      border-color: rgba(229, 192, 91, 0.35);
+      color: #E5C05B;
+    }
+    .doc-sheet__h1 {
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+    .doc-sheet__sub {
+      font-size: 1.2rem;
+      color: var(--accent-text);
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .doc-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin-block: 32px;
+    }
+    .doc-h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .doc-h2-icon {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent-text);
+      background: rgba(37, 99, 235, 0.12);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(37, 99, 235, 0.25);
+    }
+    .doc-p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #CBD5E1;
+    }
+    .doc-p + .doc-p {
+      margin-top: 14px;
+    }
+    .doc-list {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+    .doc-list li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #CBD5E1;
+    }
+    .doc-list li::before {
+      content: "•";
+      position: absolute;
+      left: 6px;
+      top: 0;
+      color: var(--accent-text);
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .doc-callout {
+      margin-top: 18px;
+      padding: 14px 18px;
+      background: rgba(229, 192, 91, 0.06);
+      border-left: 3px solid #E5C05B;
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      font-size: 0.88rem;
+      color: #E2E8F0;
+      line-height: 1.55;
+    }
+    .doc-callout strong {
+      color: #E5C05B;
+    }
+
+    /* Module Blocks */
+    .doc-mod-block {
+      background: #080B12;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--r-md);
+      padding: 22px 24px;
+      margin-bottom: 20px;
+    }
+    .doc-mod-head {
+      margin-bottom: 12px;
+    }
+    .doc-mod-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent-text);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .doc-mod-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 4px 0 6px;
+    }
+    .doc-mod-tags {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: #94A3B8;
+      letter-spacing: 0.02em;
+    }
+    .doc-mod-desc {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #94A3B8;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+    .doc-topic-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 12px;
+    }
+    .doc-topic-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: #E2E8F0;
+    }
+    .doc-topic-list li::before {
+      content: "–";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      color: var(--accent-text);
+      font-weight: 700;
+    }
+
+    /* Case Studies */
+    .doc-cs-item {
+      background: #080B12;
+      border: 1px solid rgba(229, 192, 91, 0.2);
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .doc-cs-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .doc-cs-item p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #94A3B8;
+    }
+
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .nav, .doc-bar, .footer { display: none !important; }
+      .doc-container { max-width: 100% !important; padding: 0 !important; }
+      .doc-sheet, .doc-mod-block, .doc-cs-item { background: #fff !important; color: #000 !important; border: 1px solid #ccc !important; box-shadow: none !important; }
+      .doc-sheet__h1, .doc-h2, .doc-mod-title, .doc-cs-item h4 { color: #000 !important; }
+      .doc-p, .doc-list li, .doc-mod-desc, .doc-topic-list li, .doc-cs-item p { color: #222 !important; }
+    }
+  </style>
+</head>
+<body class="doc-page">
+
+  <!-- TOP NAV -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" aria-label="DC Tech and AuriLearn">
+        <span class="brand__chip"><img src="assets/dctech-logo.png" alt="DC Tech" width="30" height="30" /></span>
+        <span class="brand__word">DC&nbsp;Tech</span>
+        <span class="brand-x">×</span>
+        <span class="nav-auri-wrap">
+          <img src="assets/aurilearn-tree.svg" alt="AuriLearn" class="nav-auri-logo" width="22" height="22" />
+          <span class="brand__word brand__word--auri">AuriLearn</span>
+        </span>
+      </a>
+      <div style="margin-left:auto; display:flex; align-items:center; gap:12px;">
+        <a class="btn btn--ghost btn--sm" href="index.html">← Back to Overview</a>
+        <a class="btn btn--primary btn--sm js-cta-enroll" href="https://rzp.io/rzp/aJ456hU" target="_blank" rel="noopener noreferrer">Register Now — US$5</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc-container">
+
+    <!-- Top Controls -->
+    <div class="doc-bar">
+      <a href="index.html" style="font-size:0.88rem; color:var(--accent-text); text-decoration:none; font-weight:600;">← Back to Landing Page</a>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="btn--print-action" onclick="window.print()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print / Save PDF
+        </button>
+        <a class="btn btn--primary btn--sm js-cta-enroll" href="https://rzp.io/rzp/aJ456hU" target="_blank" rel="noopener noreferrer">Register Now — US$5</a>
+      </div>
+    </div>
+
+    <!-- DOCUMENT SHEET -->
+    <article class="doc-sheet">
+
+      <div class="doc-sheet__badge-row">
+        <span class="doc-pill">OFFICIAL COURSE SPECIFICATION</span>
+        <span class="doc-pill doc-pill--gold">POWERED BY AURILEARN AI</span>
+      </div>
+
+      <h1 class="doc-sheet__h1">GPU-ACCELERATED AI INFRASTRUCTURE</h1>
+      <p class="doc-sheet__sub">Designing and Operating GPU-Accelerated AI Infrastructure</p>
+
+      <div class="doc-divider"></div>
+
+      <!-- Course Overview -->
+      <section>
+        <h2 class="doc-h2"><span class="doc-h2-icon">01</span> Course Overview</h2>
+        <p class="doc-p">
+          This course provides a comprehensive, systems-level foundation for designing, deploying, and operating modern GPU-accelerated AI infrastructure. Across eight modules, participants progress from the fundamentals of AI workload behavior through GPU architecture, orchestration, high-performance networking, storage, multi-tenant scheduling, observability, and hybrid scaling strategy — building the full stack of knowledge required to architect production-grade AI platforms.
+        </p>
+        <p class="doc-p">
+          The course is built around real infrastructure decisions: how to size GPU clusters, how to design fabrics that keep GPUs fed, how to share expensive capacity fairly across teams, and how to keep a fleet observable and compliant at scale. Each module closes with applied case-study analysis grounded in real-world deployment scenarios.
+        </p>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- Target Audience -->
+      <section>
+        <h2 class="doc-h2"><span class="doc-h2-icon">02</span> Target Audience</h2>
+        <p class="doc-p">
+          This course is designed for infrastructure and platform professionals who are responsible for designing, deploying, or operating modern data centre environments and are transitioning toward AI and GPU-accelerated workloads, including:
+        </p>
+        <ul class="doc-list">
+          <li>Data Centre and Infrastructure Engineers</li>
+          <li>Systems Engineers and Technical Architects</li>
+          <li>Platform Engineers supporting AI, ML, or analytics workloads</li>
+          <li>Virtualization and Platform Administrators</li>
+          <li>Cloud and Hybrid Infrastructure Engineers</li>
+          <li>IT professionals involved in compute, networking, or storage architecture design</li>
+        </ul>
+        <div class="doc-callout">
+          <strong>Career Focus:</strong> This course is particularly relevant for professionals moving from traditional enterprise infrastructure into GPU-centric, Kubernetes-based, and bare-metal AI platforms.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- Prerequisites -->
+      <section>
+        <h2 class="doc-h2"><span class="doc-h2-icon">03</span> Prerequisites</h2>
+        <p class="doc-p">
+          Participants should have the following background before attending the course:
+        </p>
+        <ul class="doc-list">
+          <li>Solid understanding of enterprise data centre concepts, including compute, networking, and storage fundamentals</li>
+          <li>Server hardware architecture and operating systems knowledge (Linux preferred)</li>
+          <li>Hands-on experience with virtualization or platform administration</li>
+          <li>Basic familiarity with containerisation and Kubernetes concepts</li>
+          <li>Working knowledge of IP networking concepts (VLANs, routing, switching)</li>
+          <li>General understanding of storage technologies (block, file, performance characteristics)</li>
+        </ul>
+        <div class="doc-callout">
+          <strong>Note:</strong> This course focuses on AI infrastructure and platform design, not model development or algorithm design.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- Course Objectives -->
+      <section>
+        <h2 class="doc-h2"><span class="doc-h2-icon">04</span> Course Objectives</h2>
+        <p class="doc-p">Upon successful completion of this course, participants will be able to:</p>
+        <ul class="doc-list">
+          <li>Explain the AI workload lifecycle and map infrastructure requirements across each phase</li>
+          <li>Architect compute, network, and storage stacks optimised for AI infrastructure</li>
+          <li>Configure and validate GPU-optimised hardware platforms and rack deployments</li>
+          <li>Design and tune RDMA-enabled high-performance fabrics with proper congestion control mechanisms</li>
+          <li>Implement NVMe-over-Fabrics (NVMe-oF) storage architectures and integrate them into Kubernetes environments</li>
+          <li>Deploy MLOps and Generative AI pipelines on Kubernetes with comprehensive observability</li>
+          <li>Design hybrid AI scaling strategies that align with compliance and cost objectives</li>
+          <li>Produce portfolio-ready AI infrastructure design documents</li>
+        </ul>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- Detailed Course Outline -->
+      <section>
+        <h2 class="doc-h2"><span class="doc-h2-icon">05</span> Detailed Course Outline</h2>
+
+        <!-- Module 1 -->
+        <div class="doc-mod-block">
+          <div class="doc-mod-head">
+            <span class="doc-mod-kicker">Module 1</span>
+            <h3 class="doc-mod-title">AI Workload Lifecycle and Infrastructure Requirements</h3>
+            <span class="doc-mod-tags">Training · Fine-Tuning · Inference · Bottleneck Analysis</span>
+          </div>
+          <p class="doc-mod-desc">Establishes the foundation of AI infrastructure design by examining how AI workloads differ fundamentally from traditional enterprise applications, and how each lifecycle phase places distinct demands on compute, storage, and network resources.</p>
+          <ul class="doc-topic-list">
+            <li>The AI Workload Lifecycle — Overview</li>
+            <li>Why AI Workloads Break Traditional Infrastructure Assumptions</li>
+            <li>Resource Requirement Mapping Per Lifecycle Phase</li>
+            <li>Storage, Network, and Compute Demand Patterns Across Phases</li>
+            <li>Performance Bottleneck Identification</li>
+            <li>Use Cases: Training vs. Batch Inference vs. Real-Time Analytics</li>
+          </ul>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="doc-mod-block">
+          <div class="doc-mod-head">
+            <span class="doc-mod-kicker">Module 2</span>
+            <h3 class="doc-mod-title">GPU Computing Platforms and Architecture for AI</h3>
+            <span class="doc-mod-tags">H100 Architecture · NVLink/NVSwitch · Platform Sizing</span>
+          </div>
+          <p class="doc-mod-desc">A deep architectural examination of modern NVIDIA GPU platforms, from silicon-level design through multi-GPU topology and platform selection for production AI infrastructure.</p>
+          <ul class="doc-topic-list">
+            <li>GPU Fundamentals and Accelerated Computing Principles</li>
+            <li>NVIDIA GPU Architecture: H100 Deep-Dive</li>
+            <li>GPU Memory Hierarchy and Bandwidth Optimisation</li>
+            <li>NVLink and NVSwitch Topology for Multi-GPU Systems</li>
+            <li>GPU Sizing Formulas and Capacity Planning</li>
+            <li>NVIDIA DGX H100 — Reference System Architecture</li>
+            <li>Platform Comparison: DGX, Cisco AI POD, Dell/HPE HGX, and Custom Builds</li>
+            <li>Bill of Materials and Total-Cost-of-Ownership Modelling for On-Premises GPU Platforms</li>
+          </ul>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="doc-mod-block">
+          <div class="doc-mod-head">
+            <span class="doc-mod-kicker">Module 3</span>
+            <h3 class="doc-mod-title">GPU Compute Platforms — Bare-Metal and Kubernetes Orchestration</h3>
+            <span class="doc-mod-tags">NUMA Tuning · GPU Operator · Kubernetes Scheduling</span>
+          </div>
+          <p class="doc-mod-desc">Covers the operational layer that turns GPU hardware into reliable, schedulable infrastructure — from bare-metal tuning through full Kubernetes-based orchestration.</p>
+          <ul class="doc-topic-list">
+            <li>Bare-Metal GPU Infrastructure: Performance vs. Virtualisation</li>
+            <li>GPU Node Tuning: BIOS Configuration, CPU Affinity, and Memory Optimisation</li>
+            <li>CUDA Driver Installation and GPU Driver Management</li>
+            <li>Kubernetes as the Control Plane for AI Workloads</li>
+            <li>NVIDIA GPU Operator: Automated Driver, Runtime, and Plugin Deployment</li>
+            <li>GPU Resource Requests, Limits, and QoS in Kubernetes</li>
+            <li>MIG Partitioning and Time-Slicing for GPU Sharing</li>
+            <li>Hybrid Compute Patterns for Heterogeneous GPU Deployments</li>
+          </ul>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="doc-mod-block">
+          <div class="doc-mod-head">
+            <span class="doc-mod-kicker">Module 4</span>
+            <h3 class="doc-mod-title">High-Performance Networking Fabrics for Distributed AI</h3>
+            <span class="doc-mod-tags">RDMA · InfiniBand · RoCEv2 · NCCL</span>
+          </div>
+          <p class="doc-mod-desc">Examines the fabric layer that determines whether distributed training scales efficiently, covering RDMA fundamentals, fabric technology comparisons, and topology design.</p>
+          <ul class="doc-topic-list">
+            <li>Why Traditional Networking Fails for AI Workload Requirements</li>
+            <li>RDMA Fundamentals and Advantages</li>
+            <li>InfiniBand and Ethernet-Based RDMA (RoCEv2) Comparison</li>
+            <li>Lossless Fabric Design: PFC and ECN/DCQCN Tuning</li>
+            <li>Collective Communication Patterns: AllReduce, AllGather, Reduce-Scatter, and AllToAll</li>
+            <li>RAIL-Optimised Network Topology for Hierarchical GPU Clusters</li>
+            <li>NCCL — NVIDIA Collective Communications Library</li>
+            <li>NVIDIA Spectrum, Cisco, and Juniper Switch Architectures</li>
+          </ul>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="doc-mod-block">
+          <div class="doc-mod-head">
+            <span class="doc-mod-kicker">Module 5</span>
+            <h3 class="doc-mod-title">GPU Resource Sharing and Multi-Tenant Cluster Management</h3>
+            <span class="doc-mod-tags">MIG · Run:AI · SLURM · Fair-Share Scheduling</span>
+          </div>
+          <p class="doc-mod-desc">Addresses how organisations safely and fairly share expensive GPU capacity across multiple teams through partitioning, scheduling, and quota enforcement.</p>
+          <ul class="doc-topic-list">
+            <li>Multi-Instance GPU (MIG) Partitioning</li>
+            <li>Time-Slicing Strategies for GPU Sharing</li>
+            <li>Multi-Tenant Cluster Architecture: Namespace Isolation, RBAC, and Network Policies</li>
+            <li>GPU Quota Design and Enforcement on Kubernetes</li>
+            <li>Run:AI and SLURM Job Scheduling for Distributed Training</li>
+            <li>Service Level Objectives (SLOs) and Cluster Capacity Planning</li>
+            <li>Monitoring and Metering GPU Utilisation Per Tenant</li>
+          </ul>
+        </div>
+
+        <!-- Module 6 -->
+        <div class="doc-mod-block">
+          <div class="doc-mod-head">
+            <span class="doc-mod-kicker">Module 6</span>
+            <h3 class="doc-mod-title">Storage for AI Workloads</h3>
+            <span class="doc-mod-tags">NVMe-oF · GPUDirect Storage · Parallel File Systems</span>
+          </div>
+          <p class="doc-mod-desc">Covers storage architectures purpose-built for AI I/O patterns, ensuring data pipelines can sustain full GPU utilisation across training, checkpointing, and inference.</p>
+          <ul class="doc-topic-list">
+            <li>Legacy Limitations: Why Traditional NAS/SAN Architectures Bottleneck AI</li>
+            <li>NVMe-over-Fabrics (NVMe-oF) Architecture</li>
+            <li>Distributed Storage Architectures: VAST Data, Weka.io, and DDN EXAScaler</li>
+            <li>NetApp Architecture and Capabilities for AI Workloads</li>
+            <li>Object Storage (S3) Integration and Use Cases</li>
+            <li>Storage Performance Tuning for Distributed Training</li>
+            <li>Kubernetes PersistentVolume Integration with NVMe-oF Backends</li>
+            <li>Checkpoint and Artifact Management During Distributed Training</li>
+          </ul>
+        </div>
+
+        <!-- Module 7 -->
+        <div class="doc-mod-block">
+          <div class="doc-mod-head">
+            <span class="doc-mod-kicker">Module 7</span>
+            <h3 class="doc-mod-title">Observability and Operational Excellence</h3>
+            <span class="doc-mod-tags">DCGM · Prometheus/Grafana · XID Error Analysis</span>
+          </div>
+          <p class="doc-mod-desc">Builds the operational discipline needed to run GPU fleets in production — from telemetry and alerting through structured incident response and upgrade management.</p>
+          <ul class="doc-topic-list">
+            <li>GPU Cluster Observability Stack — Architecture Overview</li>
+            <li>NVIDIA DCGM: Telemetry, Health Diagnostics, and Failure Detection</li>
+            <li>Prometheus and Grafana Stack for GPU Metrics</li>
+            <li>Alert Configuration and Escalation Policies</li>
+            <li>Common Failure Modes in GPU Clusters</li>
+            <li>XID Error Reference and Response Guide</li>
+            <li>Runbooks and Incident Response Procedures</li>
+            <li>Upgrade Strategies: Drivers, CUDA, and Kubernetes</li>
+          </ul>
+        </div>
+
+        <!-- Module 8 -->
+        <div class="doc-mod-block">
+          <div class="doc-mod-head">
+            <span class="doc-mod-kicker">Module 8</span>
+            <h3 class="doc-mod-title">Hybrid Scaling, Compliance, and Cost Optimisation</h3>
+            <span class="doc-mod-tags">Multi-Cloud Architecture · GDPR/HIPAA · FinOps</span>
+          </div>
+          <p class="doc-mod-desc">Closes the course with strategic decision-making: where to place AI workloads, how to remain compliant across jurisdictions, and how to manage GPU infrastructure economics at scale.</p>
+          <ul class="doc-topic-list">
+            <li>Hybrid Deployment Decision Framework</li>
+            <li>On-Premises vs. Cloud vs. Edge — Detailed Comparison</li>
+            <li>Multi-Region and Multi-Cloud AI Infrastructure Patterns</li>
+            <li>Compliance and Data Residency Enforcement in Hybrid Environments</li>
+            <li>Cost Modelling: CapEx vs. OpEx Analysis</li>
+            <li>Total Cost of Ownership (TCO) Across Deployment Models</li>
+            <li>Cost Optimisation Strategies</li>
+            <li>FinOps Governance Framework</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- Applied Case Studies -->
+      <section>
+        <h2 class="doc-h2"><span class="doc-h2-icon">06</span> Applied Case Studies</h2>
+        <p class="doc-p" style="margin-bottom:16px;">The course concludes with analysis of real-world infrastructure decisions, giving participants a framework for evaluating trade-offs in live deployment scenarios:</p>
+        
+        <div class="doc-cs-item">
+          <h4>Case Study 1: On-Premises vs. Cloud GPU Clusters</h4>
+          <p>Evaluating Utilisation, Break-Even Thresholds, and Deployment Fit.</p>
+        </div>
+        <div class="doc-cs-item">
+          <h4>Case Study 2: Storage Architecture for Scale</h4>
+          <p>Matching Storage Design to Real Workload I/O Patterns.</p>
+        </div>
+        <div class="doc-cs-item">
+          <h4>Case Study 3: Multi-Region GDPR Compliance</h4>
+          <p>Designing AI Infrastructure Under Data Residency Constraints.</p>
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- Registration Banner -->
+      <div style="text-align:center; padding:20px; background:#080B12; border-radius:var(--r-md); border:1px solid rgba(37,99,235,0.25);">
+        <p style="font-size:1rem; font-weight:700; color:#fff; margin-bottom:6px;">Ready to begin?</p>
+        <p style="font-size:0.85rem; color:#94A3B8; margin-bottom:16px;">Enroll today for the market introduction price of US$5 (Limited to 50 purchases total).</p>
+        <a class="btn btn--primary btn--md js-cta-enroll" href="https://rzp.io/rzp/aJ456hU" target="_blank" rel="noopener noreferrer">Register Now — US$5</a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand-col">
+        <div class="footer__brand-lockup">
+          <a class="brand" href="index.html" aria-label="DC Tech home">
+            <span class="brand__chip brand__chip--sm"><img src="assets/dctech-logo.png" alt="DC Tech" width="26" height="26" /></span>
+          </a>
+          <span class="brand-x">×</span>
+          <img src="assets/aurilearn-tree.svg" alt="AuriLearn" class="footer-auri-tree" />
+        </div>
+        <p class="footer__brand-name">DC Tech × AuriLearn</p>
+        <p class="footer__tag">AI-powered GPU infrastructure training for US data center engineers.</p>
+      </div>
+
+      <div class="footer__links-wrap">
+        <div class="footer__nav-group">
+          <p class="footer__group-title">Program</p>
+          <ul class="footer__nav-list">
+            <li><a href="index.html#why">Why This</a></li>
+            <li><a href="index.html#aurilearn">AuriLearn AI</a></li>
+            <li><a href="index.html#modules">Curriculum</a></li>
+            <li><a href="reading-list.html">Recommended Reading</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__nav-group">
+          <p class="footer__group-title">Legal &amp; Support</p>
+          <ul class="footer__nav-list">
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="terms.html#refunds">Refund Policy</a></li>
+            <li><a href="terms.html#contact">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__action-col">
+        <p class="footer__group-title">Registration</p>
+        <a class="btn btn--primary btn--sm js-cta-enroll" href="https://rzp.io/rzp/aJ456hU" target="_blank" rel="noopener noreferrer">Register Now — US$5</a>
+        <span class="footer__action-sub">Limited to 50 purchases total</span>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p class="footer__disclosure">
+        Independent training program: not affiliated with or endorsed by NVIDIA Corporation. NVIDIA, H100, H200, B200, DGX, and NVLink are trademarks of NVIDIA Corporation.
+      </p>
+      <div class="footer__base">
+        <p>© 2026 DC Tech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
