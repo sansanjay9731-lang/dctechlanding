@@ -390,7 +390,7 @@
               <span class="module__head"><span class="module__title">AI Workload Lifecycle &amp; Infrastructure Requirements</span><span class="module__tags"><i>Training</i><i>Fine-tuning</i><i>Inference</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">How training, fine-tuning, and inference workloads behave, and the distinct infrastructure each one demands before you spend a dollar on hardware.</div>
+            <div class="module__body">Map training, fine-tuning, and inference phases to real compute/storage/network demand — and spot bottlenecks before they hit production.</div>
           </details>
           <details class="module" name="modules">
             <summary>
@@ -398,7 +398,7 @@
               <span class="module__head"><span class="module__title">GPU Computing Platforms &amp; Architecture</span><span class="module__tags"><i>H100</i><i>NVLink</i><i>NVSwitch</i><i>TCO</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Inside modern NVIDIA GPU platforms: H100 internals, NVLink/NVSwitch scale-up topologies, right-sizing for a workload, and total-cost-of-ownership trade-offs across DGX, Cisco, and Dell-HPE systems.</div>
+            <div class="module__body">H100 architecture, NVLink/NVSwitch topology, GPU sizing formulas, and a DGX vs. Cisco vs. Dell-HPE platform comparison with full TCO modeling.</div>
           </details>
           <details class="module" name="modules">
             <summary>
@@ -406,7 +406,7 @@
               <span class="module__head"><span class="module__title">Bare-Metal &amp; Kubernetes GPU Orchestration</span><span class="module__tags"><i>NUMA</i><i>GPU Operator</i><i>Device Plugin</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Scheduling GPUs on bare metal and through Kubernetes: NUMA/topology tuning, the NVIDIA GPU Operator, and reliable device-plugin orchestration for production workloads.</div>
+            <div class="module__body">BIOS/NUMA tuning, CUDA driver management, and NVIDIA GPU Operator — turning raw GPU hardware into reliable, schedulable Kubernetes infrastructure.</div>
           </details>
           <details class="module" name="modules">
             <summary>
@@ -414,7 +414,7 @@
               <span class="module__head"><span class="module__title">High-Performance Networking Fabrics</span><span class="module__tags"><i>RDMA</i><i>InfiniBand</i><i>RoCEv2</i><i>PFC/ECN</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">The fabrics that make multi-GPU training viable: RDMA fundamentals, InfiniBand vs. RoCEv2, lossless Ethernet (PFC/ECN), and RAIL-optimized topologies.</div>
+            <div class="module__body">RDMA, GPUDirect, InfiniBand vs. RoCEv2, lossless fabric design, and NCCL — the fabric layer that decides whether distributed training actually scales.</div>
           </details>
           <details class="module" name="modules">
             <summary>
@@ -422,7 +422,7 @@
               <span class="module__head"><span class="module__title">GPU Resource Sharing &amp; Multi-Tenant Management</span><span class="module__tags"><i>MIG</i><i>Run:AI</i><i>SLURM</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Partitioning and fair-share scheduling so multiple teams safely share expensive GPU capacity: MIG, Run:AI, SLURM GRES, and time-slicing trade-offs.</div>
+            <div class="module__body">MIG partitioning, RBAC, quota enforcement, and Run:AI/SLURM scheduling for fairly sharing GPU capacity across teams.</div>
           </details>
           <details class="module" name="modules">
             <summary>
@@ -430,7 +430,7 @@
               <span class="module__head"><span class="module__title">Storage for AI Workloads</span><span class="module__tags"><i>NVMe-oF</i><i>GPUDirect</i><i>Weka</i><i>VAST</i><i>NetApp</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Feeding the GPUs: NVMe-oF, GPUDirect Storage, and parallel file systems (Weka, VAST, NetApp) so data pipelines never starve compute.</div>
+            <div class="module__body">NVMe-oF architecture, VAST/Weka/DDN/NetApp comparisons, and checkpoint strategy for I/O that keeps GPUs fed, not starved.</div>
           </details>
           <details class="module" name="modules">
             <summary>
@@ -438,7 +438,7 @@
               <span class="module__head"><span class="module__title">Observability &amp; Operational Excellence</span><span class="module__tags"><i>DCGM</i><i>Grafana</i><i>XID Errors</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Instrumenting GPU fleets with DCGM and Grafana, diagnosing failures fast through XID error-code analysis, and building runbooks that actually help on-call engineers.</div>
+            <div class="module__body">DCGM-to-Grafana monitoring, XID error diagnosis, and incident runbooks for running GPU fleets in production.</div>
           </details>
           <details class="module" name="modules">
             <summary>
@@ -446,7 +446,7 @@
               <span class="module__head"><span class="module__title">Hybrid Scaling, Compliance &amp; Cost Optimization</span><span class="module__tags"><i>GDPR</i><i>HIPAA</i><i>FinOps</i><i>CapEx/OpEx</i></span></span>
               <span class="module__chev" aria-hidden="true"></span>
             </summary>
-            <div class="module__body">Scaling across on-prem and cloud, meeting GDPR/HIPAA requirements, and driving down the cost of every GPU hour with a real FinOps model and CapEx/OpEx analysis.</div>
+            <div class="module__body">On-prem/cloud/edge placement, GDPR/HIPAA/FedRAMP data residency, and FinOps-driven TCO modeling.</div>
           </details>
         </div>
         <p class="stack" aria-label="Stack covered">
