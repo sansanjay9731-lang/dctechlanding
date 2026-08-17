@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Course Datasheet: Designing &amp; Operating GPU-Accelerated AI Infrastructure | DC Tech × AuriLearn</title>
+  <meta name="description" content="Official course datasheet and 64-topic detailed engineering syllabus for GPU-Accelerated AI Infrastructure. DC Tech × AuriLearn." />
+  <meta name="theme-color" content="#0A0C12" />
+
+  <link rel="icon" type="image/png" href="assets/dctech-logo.png" />
+  <link rel="apple-touch-icon" href="assets/dctech-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       DATASHEET-SPECIFIC ENTERPRISE STYLING
+       ═══════════════════════════════════════════════════════════════ */
+    .ds-page {
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .ds-container {
+      max-width: 960px;
+      margin-inline: auto;
+      padding: clamp(24px, 4vw, 48px) var(--s-5) 80px;
+    }
+    
+    /* Top bar controls */
+    .ds-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .ds-topbar__left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ds-topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn--print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-strong);
+      color: var(--text-strong);
+      padding: 8px 16px;
+      border-radius: var(--r-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .btn--print:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-line);
+      transform: translateY(-1px);
+    }
+
+    /* Datasheet Document Header */
+    .ds-header {
+      background: linear-gradient(180deg, rgba(37, 99, 235, 0.08) 0%, rgba(10, 12, 18, 0) 100%);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: var(--r-xl);
+      padding: clamp(24px, 4vw, 40px);
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+    }
+    .ds-header::before {
+      content: "";
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(40px);
+    }
+    .ds-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .ds-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      color: #93C5FD;
+    }
+    .ds-badge--gold {
+      background: rgba(229, 192, 91, 0.12);
+      border-color: rgba(229, 192, 91, 0.35);
+      color: #E5C05B;
+    }
+    .ds-doc-id {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-faint);
+      letter-spacing: 0.04em;
+    }
+    .ds-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.12;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+    .ds-subtitle {
+      font-size: 1.15rem;
+      color: var(--accent-text);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .ds-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .ds-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ds-meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .ds-meta-val {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-strong);
+    }
+
+    /* Datasheet Section Cards */
+    .ds-section {
+      background: #0D1017;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: clamp(20px, 3vw, 32px);
+      margin-bottom: 28px;
+    }
+    .ds-section-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .ds-section-icon {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-text);
+      background: rgba(37, 99, 235, 0.12);
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+    .ds-section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .ds-prose {
+      font-size: 0.95rem;
+      line-height: 1.68;
+      color: #CBD5E1;
+    }
+    .ds-prose p + p {
+      margin-top: 14px;
+    }
+    
+    /* Lists with custom tech bullets */
+    .ds-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+    .ds-list li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: #CBD5E1;
+    }
+    .ds-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 2px;
+      top: 0;
+      color: var(--accent-text);
+      font-weight: bold;
+    }
+    .ds-note-box {
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: rgba(229, 192, 91, 0.06);
+      border-left: 3px solid #E5C05B;
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      font-size: 0.875rem;
+      color: #E2E8F0;
+      line-height: 1.5;
+    }
+    .ds-note-box strong {
+      color: #E5C05B;
+    }
+
+    /* Modules Tree */
+    .ds-module-card {
+      background: #090C13;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--r-md);
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease;
+    }
+    .ds-module-card:hover {
+      border-color: rgba(37, 99, 235, 0.35);
+    }
+    .ds-mod-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .ds-mod-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-text);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .ds-mod-tags {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #94A3B8;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .ds-mod-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 4px 0 8px;
+    }
+    .ds-mod-desc {
+      font-size: 0.88rem;
+      color: #94A3B8;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .ds-topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 8px 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .ds-topic-item {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 0.84rem;
+      color: #E2E8F0;
+      line-height: 1.45;
+    }
+    .ds-topic-num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent-text);
+      font-weight: 600;
+      min-width: 20px;
+    }
+
+    /* Case studies cards */
+    .ds-cs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .ds-cs-card {
+      background: #090C13;
+      border: 1px solid rgba(229, 192, 91, 0.2);
+      border-radius: var(--r-md);
+      padding: 18px 20px;
+    }
+    .ds-cs-num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #E5C05B;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .ds-cs-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .ds-cs-desc {
+      font-size: 0.85rem;
+      color: #94A3B8;
+      line-height: 1.5;
+    }
+
+    /* Bottom sticky conversion bar */
+    .ds-sticky-bar {
+      position: sticky;
+      bottom: 20px;
+      z-index: 40;
+      background: rgba(13, 16, 23, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(37, 99, 235, 0.4);
+      border-radius: var(--r-pill);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      margin-top: 48px;
+    }
+    .ds-sticky-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .ds-sticky-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #fff;
+    }
+    .ds-sticky-sub {
+      font-size: 0.76rem;
+      color: #94A3B8;
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .nav, .ds-topbar, .ds-sticky-bar, .footer, .btn--print { display: none !important; }
+      .ds-container { max-width: 100% !important; padding: 0 !important; }
+      .ds-header, .ds-section, .ds-module-card { 
+        background: #fff !important; 
+        color: #000 !important; 
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+      }
+      .ds-title, .ds-section-title, .ds-mod-title { color: #000 !important; }
+      .ds-prose, .ds-list li, .ds-topic-item, .ds-mod-desc { color: #222 !important; }
+      .ds-badge, .ds-mod-num, .ds-topic-num { color: #0044bb !important; }
+    }
+
+    @media (max-width: 640px) {
+      .ds-sticky-bar {
+        flex-direction: column;
+        border-radius: var(--r-lg);
+        text-align: center;
+        padding: 16px;
+      }
+      .ds-sticky-bar .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body class="ds-page">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" aria-label="DC Tech and AuriLearn">
+        <span class="brand__chip"><img src="assets/dctech-logo.png" alt="DC Tech" width="30" height="30" /></span>
+        <span class="brand__word">DC&nbsp;Tech</span>
+        <span class="brand-x">×</span>
+        <span class="nav-auri-wrap">
+          <img src="assets/aurilearn-tree.svg" alt="AuriLearn" class="nav-auri-logo" width="22" height="22" />
+          <span class="brand__word brand__word--auri">AuriLearn</span>
+        </span>
+      </a>
+      <div style="margin-left:auto; display:flex; align-items:center; gap:12px;">
+        <a class="btn btn--ghost btn--sm" href="index.html">← Back to Overview</a>
+        <a class="btn btn--primary btn--sm js-cta-enroll" href="https://rzp.io/rzp/aJ456hU" target="_blank" rel="noopener noreferrer" data-cta="datasheet-nav">Register Now — US$5</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="ds-container">
+
+    <!-- Top Action Bar -->
+    <div class="ds-topbar">
+      <div class="ds-topbar__left">
+        <a href="index.html" style="font-size:0.85rem; color:var(--text-muted); text-decoration:none;">Home</a>
+        <span style="color:var(--text-faint)">/</span>
+        <span style="font-size:0.85rem; color:var(--text-strong); font-weight:600;">Course Datasheet</span>
+      </div>
+      <div class="ds-topbar__actions">
+        <button class="btn--print" onclick="window.print()" title="Print or Save as PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print / Save PDF
+        </button>
+        <a class="btn btn--primary btn--sm js-cta-enroll" href="https://rzp.io/rzp/aJ456hU" target="_blank" rel="noopener noreferrer">Register Now — US$5</a>
+      </div>
+    </div>
+
+    <!-- DOCUMENT HEADER -->
+    <header class="ds-header">
+      <div class="ds-badge-row">
+        <span class="ds-badge">OFFICIAL COURSE DATASHEET</span>
+        <span class="ds-badge ds-badge--gold">POWERED BY AURILEARN AI</span>
+        <span class="ds-doc-id">DOC ID: DCT-GPU-INFRA-2026-V1</span>
+      </div>
+      <h1 class="ds-title">GPU-Accelerated AI Infrastructure</h1>
+      <p class="ds-subtitle">Designing and Operating GPU-Accelerated AI Infrastructure</p>
+
+      <div class="ds-meta-grid">
+        <div class="ds-meta-item">
+          <span class="ds-meta-label">Curriculum Depth</span>
+          <span class="ds-meta-val">8 Modules · 64 Topics</span>
+        </div>
+        <div class="ds-meta-item">
+          <span class="ds-meta-label">Delivery Format</span>
+          <span class="ds-meta-val">24/7 AI-Taught Interactive</span>
+        </div>
+        <div class="ds-meta-item">
+          <span class="ds-meta-label">Reference Material</span>
+          <span class="ds-meta-val">218 Pages Deep-Dive Specs</span>
+        </div>
+        <div class="ds-meta-item">
+          <span class="ds-meta-label">Capstone Deliverable</span>
+          <span class="ds-meta-val">AI Infra Design Document</span>
+        </div>
+        <div class="ds-meta-item">
+          <span class="ds-meta-label">Certification</span>
+          <span class="ds-meta-val">Practitioner Credential</span>
+        </div>
+        <div class="ds-meta-item">
+          <span class="ds-meta-label">Market Intro Price</span>
+          <span class="ds-meta-val">US$5 (Limited 50 Spots)</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 1. COURSE OVERVIEW -->
+    <section class="ds-section">
+      <div class="ds-section-head">
+        <span class="ds-section-icon">01</span>
+        <h2 class="ds-section-title">Course Overview</h2>
+      </div>
+      <div class="ds-prose">
+        <p>
+          This course provides a comprehensive, systems-level foundation for designing, deploying, and operating modern GPU-accelerated AI infrastructure. Across eight modules, participants progress from the fundamentals of AI workload behavior through GPU architecture, orchestration, high-performance networking, storage, multi-tenant scheduling, observability, and hybrid scaling strategy — building the full stack of knowledge required to architect production-grade AI platforms.
+        </p>
+        <p>
+          The course is built around real infrastructure decisions: how to size GPU clusters, how to design fabrics that keep GPUs fed, how to share expensive capacity fairly across teams, and how to keep a fleet observable and compliant at scale. Each module closes with applied case-study analysis grounded in real-world deployment scenarios.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. TARGET AUDIENCE -->
+    <section class="ds-section">
+      <div class="ds-section-head">
+        <span class="ds-section-icon">02</span>
+        <h2 class="ds-section-title">Target Audience</h2>
+      </div>
+      <div class="ds-prose">
+        <p>
+          This course is designed for infrastructure and platform professionals who are responsible for designing, deploying, or operating modern data centre environments and are transitioning toward AI and GPU-accelerated workloads, including:
+        </p>
+      </div>
+      <ul class="ds-list">
+        <li><strong>Data Centre and Infrastructure Engineers</strong> designing power, cooling, and high-density GPU racks</li>
+        <li><strong>Systems Engineers and Technical Architects</strong> planning bare-metal and hybrid cluster topologies</li>
+        <li><strong>Platform Engineers</strong> supporting AI, ML, or analytics workloads on Kubernetes</li>
+        <li><strong>Virtualization and Platform Administrators</strong> modernizing legacy infrastructure stacks</li>
+        <li><strong>Cloud and Hybrid Infrastructure Engineers</strong> evaluating multi-cloud burst and egress architectures</li>
+        <li><strong>IT Professionals</strong> involved in compute, networking, or storage architecture design</li>
+      </ul>
+      <div class="ds-note-box">
+        <strong>Career Focus:</strong> This course is particularly relevant for professionals moving from traditional enterprise infrastructure into GPU-centric, Kubernetes-based, and bare-metal AI platforms.
+      </div>
+    </section>
+
+    <!-- 3. PREREQUISITES -->
+    <section class="ds-section">
+      <div class="ds-section-head">
+        <span class="ds-section-icon">03</span>
+        <h2 class="ds-section-title">Prerequisites</h2>
+      </div>
+      <div class="ds-prose">
+        <p>
+          Participants should have the following background before attending the course:
+        </p>
+      </div>
+      <ul class="ds-list">
+        <li>Solid understanding of enterprise data centre concepts, including compute, networking, and storage fundamentals</li>
+        <li>Server hardware architecture and operating systems knowledge (Linux preferred)</li>
+        <li>Hands-on experience with virtualization or platform administration</li>
+        <li>Basic familiarity with containerisation and Kubernetes concepts</li>
+        <li>Working knowledge of IP networking concepts (VLANs, routing, switching)</li>
+        <li>General understanding of storage technologies (block, file, performance characteristics)</li>
+      </ul>
+      <div class="ds-note-box">
+        <strong>Scope Note:</strong> This course focuses strictly on <em>AI infrastructure and platform design</em>, not model development or algorithm design.
+      </div>
+    </section>
+
+    <!-- 4. COURSE OBJECTIVES -->
+    <section class="ds-section">
+      <div class="ds-section-head">
+        <span class="ds-section-icon">04</span>
+        <h2 class="ds-section-title">Course Objectives</h2>
+      </div>
+      <div class="ds-prose">
+        <p>
+          Upon successful completion of this course, participants will be able to:
+        </p>
+      </div>
+      <ul class="ds-list">
+        <li>Explain the AI workload lifecycle and map infrastructure requirements across each phase</li>
+        <li>Architect compute, network, and storage stacks optimised for AI infrastructure</li>
+        <li>Configure and validate GPU-optimised hardware platforms and rack deployments</li>
+        <li>Design and tune RDMA-enabled high-performance fabrics with proper congestion control mechanisms</li>
+        <li>Implement NVMe-over-Fabrics (NVMe-oF) storage architectures and integrate them into Kubernetes environments</li>
+        <li>Deploy MLOps and Generative AI pipelines on Kubernetes with comprehensive observability</li>
+        <li>Design hybrid AI scaling strategies that align with compliance and cost objectives</li>
+        <li>Produce portfolio-ready AI infrastructure design documents</li>
+      </ul>
+    </section>
+
+    <!-- 5. DETAILED COURSE OUTLINE -->
+    <section class="ds-section">
+      <div class="ds-section-head">
+        <span class="ds-section-icon">05</span>
+        <h2 class="ds-section-title">Detailed Course Outline (64 Topics)</h2>
+      </div>
+      <div class="ds-prose" style="margin-bottom: 24px;">
+        <p>Comprehensive 8-module breakdown covering every operational layer of modern GPU data center infrastructure:</p>
+      </div>
+
+      <!-- Module 1 -->
+      <div class="ds-module-card">
+        <div class="ds-mod-header">
+          <div>
+            <span class="ds-mod-num">Module 01</span>
+            <h3 class="ds-mod-title">AI Workload Lifecycle and Infrastructure Requirements</h3>
+          </div>
+          <span class="ds-mod-tags">Training · Fine-Tuning · Inference · Bottleneck Analysis</span>
+        </div>
+        <p class="ds-mod-desc">
+          Establishes the foundation of AI infrastructure design by examining how AI workloads differ fundamentally from traditional enterprise applications, and how each lifecycle phase places distinct demands on compute, storage, and network resources.
+        </p>
+        <div class="ds-topics-grid">
+          <div class="ds-topic-item"><span class="ds-topic-num">01.</span><span>The AI Workload Lifecycle — Overview</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">02.</span><span>Why AI Workloads Break Traditional Infrastructure Assumptions</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">03.</span><span>Resource Requirement Mapping Per Lifecycle Phase</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">04.</span><span>Storage, Network, and Compute Demand Patterns Across Phases</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">05.</span><span>Performance Bottleneck Identification</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">06.</span><span>Use Cases: Training vs. Batch Inference vs. Real-Time Analytics</span></div>
+        </div>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="ds-module-card">
+        <div class="ds-mod-header">
+          <div>
+            <span class="ds-mod-num">Module 02</span>
+            <h3 class="ds-mod-title">GPU Computing Platforms and Architecture for AI</h3>
+          </div>
+          <span class="ds-mod-tags">H100 Architecture · NVLink/NVSwitch · Platform Sizing</span>
+        </div>
+        <p class="ds-mod-desc">
+          A deep architectural examination of modern NVIDIA GPU platforms, from silicon-level design through multi-GPU topology and platform selection for production AI infrastructure.
+        </p>
+        <div class="ds-topics-grid">
+          <div class="ds-topic-item"><span class="ds-topic-num">07.</span><span>GPU Fundamentals and Accelerated Computing Principles</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">08.</span><span>NVIDIA GPU Architecture: H100 Deep-Dive</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">09.</span><span>GPU Memory Hierarchy and Bandwidth Optimisation</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">10.</span><span>NVLink and NVSwitch Topology for Multi-GPU Systems</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">11.</span><span>GPU Sizing Formulas and Capacity Planning</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">12.</span><span>NVIDIA DGX H100 — Reference System Architecture</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">13.</span><span>Platform Comparison: DGX, Cisco AI POD, Dell/HPE HGX, and Custom Builds</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">14.</span><span>Bill of Materials and Total-Cost-of-Ownership Modelling for On-Premises GPU Platforms</span></div>
+        </div>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="ds-module-card">
+        <div class="ds-mod-header">
+          <div>
+            <span class="ds-mod-num">Module 03</span>
+            <h3 class="ds-mod-title">GPU Compute Platforms — Bare-Metal and Kubernetes Orchestration</h3>
+          </div>
+          <span class="ds-mod-tags">NUMA Tuning · GPU Operator · Kubernetes Scheduling</span>
+        </div>
+        <p class="ds-mod-desc">
+          Covers the operational layer that turns GPU hardware into reliable, schedulable infrastructure — from bare-metal tuning through full Kubernetes-based orchestration.
+        </p>
+        <div class="ds-topics-grid">
+          <div class="ds-topic-item"><span class="ds-topic-num">15.</span><span>Bare-Metal GPU Infrastructure: Performance vs. Virtualisation</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">16.</span><span>GPU Node Tuning: BIOS Configuration, CPU Affinity, and Memory Optimisation</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">17.</span><span>CUDA Driver Installation and GPU Driver Management</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">18.</span><span>Kubernetes as the Control Plane for AI Workloads</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">19.</span><span>NVIDIA GPU Operator: Automated Driver, Runtime, and Plugin Deployment</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">20.</span><span>GPU Resource Requests, Limits, and QoS in Kubernetes</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">21.</span><span>MIG Partitioning and Time-Slicing for GPU Sharing</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">22.</span><span>Hybrid Compute Patterns for Heterogeneous GPU Deployments</span></div>
+        </div>
+      </div>
+
+      <!-- Module 4 -->
+      <div class="ds-module-card">
+        <div class="ds-mod-header">
+          <div>
+            <span class="ds-mod-num">Module 04</span>
+            <h3 class="ds-mod-title">High-Performance Networking Fabrics for Distributed AI</h3>
+          </div>
+          <span class="ds-mod-tags">RDMA · InfiniBand · RoCEv2 · NCCL</span>
+        </div>
+        <p class="ds-mod-desc">
+          Examines the fabric layer that determines whether distributed training scales efficiently, covering RDMA fundamentals, fabric technology comparisons, and topology design.
+        </p>
+        <div class="ds-topics-grid">
+          <div class="ds-topic-item"><span class="ds-topic-num">23.</span><span>Why Traditional Networking Fails for AI Workload Requirements</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">24.</span><span>RDMA Fundamentals and Advantages</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">25.</span><span>InfiniBand and Ethernet-Based RDMA (RoCEv2) Comparison</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">26.</span><span>Lossless Fabric Design: PFC and ECN/DCQCN Tuning</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">27.</span><span>Collective Communication Patterns: AllReduce, AllGather, Reduce-Scatter, and AllToAll</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">28.</span><span>RAIL-Optimised Network Topology for Hierarchical GPU Clusters</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">29.</span><span>NCCL — NVIDIA Collective Communications Library</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">30.</span><span>NVIDIA Spectrum, Cisco, and Juniper Switch Architectures</span></div>
+        </div>
+      </div>
+
+      <!-- Module 5 -->
+      <div class="ds-module-card">
+        <div class="ds-mod-header">
+          <div>
+            <span class="ds-mod-num">Module 05</span>
+            <h3 class="ds-mod-title">GPU Resource Sharing and Multi-Tenant Cluster Management</h3>
+          </div>
+          <span class="ds-mod-tags">MIG · Run:AI · SLURM · Fair-Share Scheduling</span>
+        </div>
+        <p class="ds-mod-desc">
+          Addresses how organisations safely and fairly share expensive GPU capacity across multiple teams through partitioning, scheduling, and quota enforcement.
+        </p>
+        <div class="ds-topics-grid">
+          <div class="ds-topic-item"><span class="ds-topic-num">31.</span><span>Multi-Instance GPU (MIG) Partitioning</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">32.</span><span>Time-Slicing Strategies for GPU Sharing</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">33.</span><span>Multi-Tenant Cluster Architecture: Namespace Isolation, RBAC, and Network Policies</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">34.</span><span>GPU Quota Design and Enforcement on Kubernetes</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">35.</span><span>Run:AI and SLURM Job Scheduling for Distributed Training</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">36.</span><span>Service Level Objectives (SLOs) and Cluster Capacity Planning</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">37.</span><span>Monitoring and Metering GPU Utilisation Per Tenant</span></div>
+        </div>
+      </div>
+
+      <!-- Module 6 -->
+      <div class="ds-module-card">
+        <div class="ds-mod-header">
+          <div>
+            <span class="ds-mod-num">Module 06</span>
+            <h3 class="ds-mod-title">Storage for AI Workloads</h3>
+          </div>
+          <span class="ds-mod-tags">NVMe-oF · GPUDirect Storage · Parallel File Systems</span>
+        </div>
+        <p class="ds-mod-desc">
+          Covers storage architectures purpose-built for AI I/O patterns, ensuring data pipelines can sustain full GPU utilisation across training, checkpointing, and inference.
+        </p>
+        <div class="ds-topics-grid">
+          <div class="ds-topic-item"><span class="ds-topic-num">38.</span><span>Legacy Limitations: Why Traditional NAS/SAN Architectures Bottleneck AI</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">39.</span><span>NVMe-over-Fabrics (NVMe-oF) Architecture</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">40.</span><span>Distributed Storage Architectures: VAST Data, Weka.io, and DDN EXAScaler</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">41.</span><span>NetApp Architecture and Capabilities for AI Workloads</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">42.</span><span>Object Storage (S3) Integration and Use Cases</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">43.</span><span>Storage Performance Tuning for Distributed Training</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">44.</span><span>Kubernetes PersistentVolume Integration with NVMe-oF Backends</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">45.</span><span>Checkpoint and Artifact Management During Distributed Training</span></div>
+        </div>
+      </div>
+
+      <!-- Module 7 -->
+      <div class="ds-module-card">
+        <div class="ds-mod-header">
+          <div>
+            <span class="ds-mod-num">Module 07</span>
+            <h3 class="ds-mod-title">Observability and Operational Excellence</h3>
+          </div>
+          <span class="ds-mod-tags">DCGM · Prometheus/Grafana · XID Error Analysis</span>
+        </div>
+        <p class="ds-mod-desc">
+          Builds the operational discipline needed to run GPU fleets in production — from telemetry and alerting through structured incident response and upgrade management.
+        </p>
+        <div class="ds-topics-grid">
+          <div class="ds-topic-item"><span class="ds-topic-num">46.</span><span>GPU Cluster Observability Stack — Architecture Overview</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">47.</span><span>NVIDIA DCGM: Telemetry, Health Diagnostics, and Failure Detection</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">48.</span><span>Prometheus and Grafana Stack for GPU Metrics</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">49.</span><span>Alert Configuration and Escalation Policies</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">50.</span><span>Common Failure Modes in GPU Clusters</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">51.</span><span>XID Error Reference and Response Guide</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">52.</span><span>Runbooks and Incident Response Procedures</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">53.</span><span>Upgrade Strategies: Drivers, CUDA, and Kubernetes</span></div>
+        </div>
+      </div>
+
+      <!-- Module 8 -->
+      <div class="ds-module-card">
+        <div class="ds-mod-header">
+          <div>
+            <span class="ds-mod-num">Module 08</span>
+            <h3 class="ds-mod-title">Hybrid Scaling, Compliance, and Cost Optimisation</h3>
+          </div>
+          <span class="ds-mod-tags">Multi-Cloud Architecture · GDPR/HIPAA · FinOps</span>
+        </div>
+        <p class="ds-mod-desc">
+          Closes the course with strategic decision-making: where to place AI workloads, how to remain compliant across jurisdictions, and how to manage GPU infrastructure economics at scale.
+        </p>
+        <div class="ds-topics-grid">
+          <div class="ds-topic-item"><span class="ds-topic-num">54.</span><span>Hybrid Deployment Decision Framework</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">55.</span><span>On-Premises vs. Cloud vs. Edge — Detailed Comparison</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">56.</span><span>Multi-Region and Multi-Cloud AI Infrastructure Patterns</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">57.</span><span>Compliance and Data Residency Enforcement in Hybrid Environments</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">58.</span><span>Cost Modelling: CapEx vs. OpEx Analysis</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">59.</span><span>Total Cost of Ownership (TCO) Across Deployment Models</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">60.</span><span>Cost Optimisation Strategies</span></div>
+          <div class="ds-topic-item"><span class="ds-topic-num">61.</span><span>FinOps Governance Framework</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. APPLIED CASE STUDIES -->
+    <section class="ds-section">
+      <div class="ds-section-head">
+        <span class="ds-section-icon">06</span>
+        <h2 class="ds-section-title">Applied Case Studies</h2>
+      </div>
+      <div class="ds-prose">
+        <p>
+          The course concludes with analysis of real-world infrastructure decisions, giving participants a framework for evaluating trade-offs in live deployment scenarios:
+        </p>
+      </div>
+      <div class="ds-cs-grid">
+        <div class="ds-cs-card">
+          <div class="ds-cs-num">CASE STUDY 62</div>
+          <h4 class="ds-cs-title">On-Premises vs. Cloud GPU Clusters</h4>
+          <p class="ds-cs-desc">Evaluating utilisation metrics, break-even thresholds, multi-tenant density, and deployment fit across private bare-metal vs hyperscaler instances.</p>
+        </div>
+        <div class="ds-cs-card">
+          <div class="ds-cs-num">CASE STUDY 63</div>
+          <h4 class="ds-cs-title">Storage Architecture for Scale</h4>
+          <p class="ds-cs-desc">Matching storage design to real workload I/O patterns — comparing NVMe-oF, GPUDirect Storage, and parallel file systems (VAST, Weka, DDN) under high checkpoint contention.</p>
+        </div>
+        <div class="ds-cs-card">
+          <div class="ds-cs-num">CASE STUDY 64</div>
+          <h4 class="ds-cs-title">Multi-Region GDPR &amp; Compliance Architecture</h4>
+          <p class="ds-cs-desc">Designing hybrid AI infrastructure under strict data residency constraints, sovereign cloud requirements, and cross-border training boundary enforcement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CAPSTONE & CERTIFICATION -->
+    <section class="ds-section">
+      <div class="ds-section-head">
+        <span class="ds-section-icon">07</span>
+        <h2 class="ds-section-title">Capstone Deliverable &amp; Verified Credential</h2>
+      </div>
+      <div class="ds-prose">
+        <p>
+          Upon completing all 8 module quizzes and the final architecture assessment, participants graduate with:
+        </p>
+      </div>
+      <ul class="ds-list">
+        <li><strong>AI Infrastructure Design Document:</strong> A comprehensive, portfolio-ready reference architecture document you can bring directly into your company's architecture review.</li>
+        <li><strong>DC Tech AI Infrastructure Practitioner Certification:</strong> Digitally verified and shareable credential issued through AuriLearn.</li>
+        <li><strong>Lifetime Access:</strong> Continued access to the 218-page reference material and the 24/7 AuriLearn AI tutor.</li>
+      </ul>
+    </section>
+
+    <!-- STICKY ACTION BAR -->
+    <div class="ds-sticky-bar">
+      <div class="ds-sticky-text">
+        <span class="ds-sticky-title">Ready to master GPU infrastructure?</span>
+        <span class="ds-sticky-sub">Market intro price: US$5 · Limited to 50 participants</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="btn--print" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print Datasheet
+        </button>
+        <a class="btn btn--primary btn--sm js-cta-enroll" href="https://rzp.io/rzp/aJ456hU" target="_blank" rel="noopener noreferrer">Register Now — US$5</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand-col">
+        <div class="footer__brand-lockup">
+          <a class="brand" href="index.html" aria-label="DC Tech home">
+            <span class="brand__chip brand__chip--sm"><img src="assets/dctech-logo.png" alt="DC Tech" width="26" height="26" /></span>
+          </a>
+          <span class="brand-x">×</span>
+          <img src="assets/aurilearn-tree.svg" alt="AuriLearn" class="footer-auri-tree" />
+        </div>
+        <p class="footer__brand-name">DC Tech × AuriLearn</p>
+        <p class="footer__tag">AI-powered GPU infrastructure training for US data center engineers.</p>
+      </div>
+
+      <div class="footer__links-wrap">
+        <div class="footer__nav-group">
+          <p class="footer__group-title">Program</p>
+          <ul class="footer__nav-list">
+            <li><a href="index.html#why">Why This</a></li>
+            <li><a href="index.html#aurilearn">AuriLearn AI</a></li>
+            <li><a href="datasheet.html">Course Datasheet (Full 64 Topics)</a></li>
+            <li><a href="reading-list.html">Recommended Reading</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__nav-group">
+          <p class="footer__group-title">Legal &amp; Support</p>
+          <ul class="footer__nav-list">
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="terms.html#refunds">Refund Policy</a></li>
+            <li><a href="terms.html#contact">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__action-col">
+        <p class="footer__group-title">Registration</p>
+        <a class="btn btn--primary btn--sm js-cta-enroll" href="https://rzp.io/rzp/aJ456hU" target="_blank" rel="noopener noreferrer">Register Now — US$5</a>
+        <span class="footer__action-sub">Limited to 50 purchases total</span>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p class="footer__disclosure">
+        Independent training program: not affiliated with or endorsed by NVIDIA Corporation. NVIDIA, H100, H200, B200, DGX, and NVLink are trademarks of NVIDIA Corporation.
+      </p>
+      <div class="footer__base">
+        <p>© 2026 DC Tech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
