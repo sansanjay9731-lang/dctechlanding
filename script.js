@@ -62,17 +62,18 @@
     wire(".js-cta-enroll", CHECKOUT_URL);
     wire(".js-cta-syllabus", SYLLABUS_PDF_URL);
     // reading list is a local page; forward UTMs but keep same-tab navigation
-    document.querySelectorAll(".js-cta-reading").forEach((a) => { a.href = withUtms(READING_LIST_URL); });
-
-    // Helpful console hint while endpoints are pending.
-    const pending = [
-      isTodo(CHECKOUT_URL) && "CHECKOUT_URL",
-      isTodo(SYLLABUS_PDF_URL) && "SYLLABUS_PDF_URL",
-    ].filter(Boolean);
-    if (pending.length) {
-      console.warn("[DC Tech] Pending config in script.js: " + pending.join(", ") +
-        ". CTAs fall back to in-page anchors until these are set.");
-    }
+    // Track InitiateCheckout on Meta Pixel when registration CTAs are clicked
+    document.querySelectorAll(".js-cta-enroll").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (typeof window.fbq === "function") {
+          window.fbq("track", "InitiateCheckout", {
+            content_name: "GPU-Accelerated AI Infrastructure Training",
+            value: 9.99,
+            currency: "USD"
+          });
+        }
+      });
+    });
   }
 
   /* ---------------------------------------------------------------
